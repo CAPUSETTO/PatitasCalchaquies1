@@ -1,46 +1,39 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.API\\PatitasCalchaquies.API.csproj": {}
+    "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.API/PatitasCalchaquies.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.API\\PatitasCalchaquies.API.csproj": {
+    "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.API/PatitasCalchaquies.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.API\\PatitasCalchaquies.API.csproj",
+        "projectUniqueName": "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.API/PatitasCalchaquies.API.csproj",
         "projectName": "PatitasCalchaquies.API",
-        "projectPath": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.API\\PatitasCalchaquies.API.csproj",
-        "packagesPath": "C:\\Users\\sebaz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.API\\obj\\",
+        "projectPath": "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.API/PatitasCalchaquies.API.csproj",
+        "packagesPath": "/Users/capusetto/.nuget/packages/",
+        "outputPath": "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.API/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\sebaz\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/capusetto/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net10.0": {
-            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Core\\PatitasCalchaquies.Core.csproj": {
-                "projectPath": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Core\\PatitasCalchaquies.Core.csproj"
+              "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Core/PatitasCalchaquies.Core.csproj": {
+                "projectPath": "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Core/PatitasCalchaquies.Core.csproj"
               },
-              "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Infrastructure\\PatitasCalchaquies.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Infrastructure\\PatitasCalchaquies.Infrastructure.csproj"
+              "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Infrastructure/PatitasCalchaquies.Infrastructure.csproj": {
+                "projectPath": "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Infrastructure/PatitasCalchaquies.Infrastructure.csproj"
               },
-              "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Shared\\PatitasCalchaquies.Shared.csproj": {
-                "projectPath": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Shared\\PatitasCalchaquies.Shared.csproj"
+              "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Shared/PatitasCalchaquies.Shared.csproj": {
+                "projectPath": "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Shared/PatitasCalchaquies.Shared.csproj"
               }
             }
           }
@@ -55,11 +48,10 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.300"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net10.0": {
-          "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
             "Microsoft.AspNetCore.OpenApi": {
@@ -86,7 +78,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.203/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
@@ -504,37 +496,30 @@
         }
       }
     },
-    "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Core\\PatitasCalchaquies.Core.csproj": {
+    "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Core/PatitasCalchaquies.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Core\\PatitasCalchaquies.Core.csproj",
+        "projectUniqueName": "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Core/PatitasCalchaquies.Core.csproj",
         "projectName": "PatitasCalchaquies.Core",
-        "projectPath": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Core\\PatitasCalchaquies.Core.csproj",
-        "packagesPath": "C:\\Users\\sebaz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Core\\obj\\",
+        "projectPath": "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Core/PatitasCalchaquies.Core.csproj",
+        "packagesPath": "/Users/capusetto/.nuget/packages/",
+        "outputPath": "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Core/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\sebaz\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/capusetto/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net10.0": {
-            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Shared\\PatitasCalchaquies.Shared.csproj": {
-                "projectPath": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Shared\\PatitasCalchaquies.Shared.csproj"
+              "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Shared/PatitasCalchaquies.Shared.csproj": {
+                "projectPath": "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Shared/PatitasCalchaquies.Shared.csproj"
               }
             }
           }
@@ -549,11 +534,10 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.300"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net10.0": {
-          "framework": "net10.0",
           "targetAlias": "net10.0",
           "imports": [
             "net461",
@@ -571,7 +555,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.203/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
@@ -849,40 +833,33 @@
         }
       }
     },
-    "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Infrastructure\\PatitasCalchaquies.Infrastructure.csproj": {
+    "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Infrastructure/PatitasCalchaquies.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Infrastructure\\PatitasCalchaquies.Infrastructure.csproj",
+        "projectUniqueName": "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Infrastructure/PatitasCalchaquies.Infrastructure.csproj",
         "projectName": "PatitasCalchaquies.Infrastructure",
-        "projectPath": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Infrastructure\\PatitasCalchaquies.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\sebaz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Infrastructure\\obj\\",
+        "projectPath": "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Infrastructure/PatitasCalchaquies.Infrastructure.csproj",
+        "packagesPath": "/Users/capusetto/.nuget/packages/",
+        "outputPath": "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Infrastructure/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\sebaz\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/capusetto/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net10.0": {
-            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Core\\PatitasCalchaquies.Core.csproj": {
-                "projectPath": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Core\\PatitasCalchaquies.Core.csproj"
+              "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Core/PatitasCalchaquies.Core.csproj": {
+                "projectPath": "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Core/PatitasCalchaquies.Core.csproj"
               },
-              "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Shared\\PatitasCalchaquies.Shared.csproj": {
-                "projectPath": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Shared\\PatitasCalchaquies.Shared.csproj"
+              "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Shared/PatitasCalchaquies.Shared.csproj": {
+                "projectPath": "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Shared/PatitasCalchaquies.Shared.csproj"
               }
             }
           }
@@ -897,11 +874,10 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.300"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net10.0": {
-          "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
             "Microsoft.Extensions.Configuration.Abstractions": {
@@ -933,7 +909,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.203/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
@@ -1211,33 +1187,26 @@
         }
       }
     },
-    "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Shared\\PatitasCalchaquies.Shared.csproj": {
+    "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Shared/PatitasCalchaquies.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Shared\\PatitasCalchaquies.Shared.csproj",
+        "projectUniqueName": "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Shared/PatitasCalchaquies.Shared.csproj",
         "projectName": "PatitasCalchaquies.Shared",
-        "projectPath": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Shared\\PatitasCalchaquies.Shared.csproj",
-        "packagesPath": "C:\\Users\\sebaz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Shared\\obj\\",
+        "projectPath": "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Shared/PatitasCalchaquies.Shared.csproj",
+        "packagesPath": "/Users/capusetto/.nuget/packages/",
+        "outputPath": "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Shared/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\sebaz\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/capusetto/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net10.0": {
-            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {}
           }
@@ -1252,11 +1221,10 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.300"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net10.0": {
-          "framework": "net10.0",
           "targetAlias": "net10.0",
           "imports": [
             "net461",
@@ -1274,7 +1242,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.203/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",

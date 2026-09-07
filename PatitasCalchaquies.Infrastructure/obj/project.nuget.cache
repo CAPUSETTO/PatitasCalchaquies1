@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "jXz3zRRUibI=",
+  "dgSpecHash": "d0wQFI1Sflc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Infrastructure\\PatitasCalchaquies.Infrastructure.csproj",
+  "projectFilePath": "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Infrastructure/PatitasCalchaquies.Infrastructure.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\sebaz\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\10.0.11\\microsoft.extensions.configuration.abstractions.10.0.11.nupkg.sha512",
-    "C:\\Users\\sebaz\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.11\\microsoft.extensions.dependencyinjection.abstractions.10.0.11.nupkg.sha512",
-    "C:\\Users\\sebaz\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.2\\microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",
-    "C:\\Users\\sebaz\\.nuget\\packages\\microsoft.extensions.primitives\\10.0.11\\microsoft.extensions.primitives.10.0.11.nupkg.sha512",
-    "C:\\Users\\sebaz\\.nuget\\packages\\mysqlconnector\\2.6.2\\mysqlconnector.2.6.2.nupkg.sha512"
+    "/Users/capusetto/.nuget/packages/microsoft.extensions.configuration.abstractions/10.0.11/microsoft.extensions.configuration.abstractions.10.0.11.nupkg.sha512",
+    "/Users/capusetto/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/10.0.11/microsoft.extensions.dependencyinjection.abstractions.10.0.11.nupkg.sha512",
+    "/Users/capusetto/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.2/microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",
+    "/Users/capusetto/.nuget/packages/microsoft.extensions.primitives/10.0.11/microsoft.extensions.primitives.10.0.11.nupkg.sha512",
+    "/Users/capusetto/.nuget/packages/mysqlconnector/2.6.2/mysqlconnector.2.6.2.nupkg.sha512"
   ],
   "logs": []
 }
