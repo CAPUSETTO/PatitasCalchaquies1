@@ -1,0 +1,139 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{35B24D1E-3CE8-F332-6CEA-D69522A7BFF5}|PatitasCalchaquies.Tests\\PatitasCalchaquies.Tests.csproj|c:\\users\\sebaz\\documents\\trabajo cano\\patitascalchaquies\\patitascalchaquies.tests\\testconexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35B24D1E-3CE8-F332-6CEA-D69522A7BFF5}|PatitasCalchaquies.Tests\\PatitasCalchaquies.Tests.csproj|solutionrelative:patitascalchaquies.tests\\testconexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD2C19A8-2F4F-937A-F1B3-A57234E5DA11}|PatitasCalchaquies.Infrastructure\\PatitasCalchaquies.Infrastructure.csproj|c:\\users\\sebaz\\documents\\trabajo cano\\patitascalchaquies\\patitascalchaquies.infrastructure\\context\\archivolog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD2C19A8-2F4F-937A-F1B3-A57234E5DA11}|PatitasCalchaquies.Infrastructure\\PatitasCalchaquies.Infrastructure.csproj|solutionrelative:patitascalchaquies.infrastructure\\context\\archivolog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E12DBF07-3B82-6C5F-24AA-A65A2D17186E}|PatitasCalchaquies.API\\PatitasCalchaquies.API.csproj|c:\\users\\sebaz\\documents\\trabajo cano\\patitascalchaquies\\patitascalchaquies.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E12DBF07-3B82-6C5F-24AA-A65A2D17186E}|PatitasCalchaquies.API\\PatitasCalchaquies.API.csproj|solutionrelative:patitascalchaquies.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD2C19A8-2F4F-937A-F1B3-A57234E5DA11}|PatitasCalchaquies.Infrastructure\\PatitasCalchaquies.Infrastructure.csproj|c:\\users\\sebaz\\documents\\trabajo cano\\patitascalchaquies\\patitascalchaquies.infrastructure\\extensions\\serviceextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD2C19A8-2F4F-937A-F1B3-A57234E5DA11}|PatitasCalchaquies.Infrastructure\\PatitasCalchaquies.Infrastructure.csproj|solutionrelative:patitascalchaquies.infrastructure\\extensions\\serviceextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E12DBF07-3B82-6C5F-24AA-A65A2D17186E}|PatitasCalchaquies.API\\PatitasCalchaquies.API.csproj|c:\\users\\sebaz\\documents\\trabajo cano\\patitascalchaquies\\patitascalchaquies.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{E12DBF07-3B82-6C5F-24AA-A65A2D17186E}|PatitasCalchaquies.API\\PatitasCalchaquies.API.csproj|solutionrelative:patitascalchaquies.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD2C19A8-2F4F-937A-F1B3-A57234E5DA11}|PatitasCalchaquies.Infrastructure\\PatitasCalchaquies.Infrastructure.csproj|c:\\users\\sebaz\\documents\\trabajo cano\\patitascalchaquies\\patitascalchaquies.infrastructure\\context\\myconexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD2C19A8-2F4F-937A-F1B3-A57234E5DA11}|PatitasCalchaquies.Infrastructure\\PatitasCalchaquies.Infrastructure.csproj|solutionrelative:patitascalchaquies.infrastructure\\context\\myconexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E84214A-ACD7-137C-BAEA-68A803354A2E}|PatitasCalchaquies.Core\\PatitasCalchaquies.Core.csproj|c:\\users\\sebaz\\documents\\trabajo cano\\patitascalchaquies\\patitascalchaquies.core\\interfaces\\imyconexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E84214A-ACD7-137C-BAEA-68A803354A2E}|PatitasCalchaquies.Core\\PatitasCalchaquies.Core.csproj|solutionrelative:patitascalchaquies.core\\interfaces\\imyconexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TestConexion.cs",
+              "DocumentMoniker": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Tests\\TestConexion.cs",
+              "RelativeDocumentMoniker": "PatitasCalchaquies.Tests\\TestConexion.cs",
+              "ToolTip": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Tests\\TestConexion.cs",
+              "RelativeToolTip": "PatitasCalchaquies.Tests\\TestConexion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-07T04:18:54.091Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ArchivoLog.cs",
+              "DocumentMoniker": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Infrastructure\\Context\\ArchivoLog.cs",
+              "RelativeDocumentMoniker": "PatitasCalchaquies.Infrastructure\\Context\\ArchivoLog.cs",
+              "ToolTip": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Infrastructure\\Context\\ArchivoLog.cs",
+              "RelativeToolTip": "PatitasCalchaquies.Infrastructure\\Context\\ArchivoLog.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAgwC0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-07T04:17:08.287Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.API\\Program.cs",
+              "RelativeDocumentMoniker": "PatitasCalchaquies.API\\Program.cs",
+              "ToolTip": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.API\\Program.cs",
+              "RelativeToolTip": "PatitasCalchaquies.API\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-07T04:05:53.959Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ServiceExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Infrastructure\\Extensions\\ServiceExtensions.cs",
+              "RelativeDocumentMoniker": "PatitasCalchaquies.Infrastructure\\Extensions\\ServiceExtensions.cs",
+              "ToolTip": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Infrastructure\\Extensions\\ServiceExtensions.cs",
+              "RelativeToolTip": "PatitasCalchaquies.Infrastructure\\Extensions\\ServiceExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-07T04:03:00.501Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MyConexion.cs",
+              "DocumentMoniker": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Infrastructure\\Context\\MyConexion.cs",
+              "RelativeDocumentMoniker": "PatitasCalchaquies.Infrastructure\\Context\\MyConexion.cs",
+              "ToolTip": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Infrastructure\\Context\\MyConexion.cs",
+              "RelativeToolTip": "PatitasCalchaquies.Infrastructure\\Context\\MyConexion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-07T03:53:09.276Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IMyConexion.cs",
+              "DocumentMoniker": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Core\\Interfaces\\IMyConexion.cs",
+              "RelativeDocumentMoniker": "PatitasCalchaquies.Core\\Interfaces\\IMyConexion.cs",
+              "ToolTip": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.Core\\Interfaces\\IMyConexion.cs",
+              "RelativeToolTip": "PatitasCalchaquies.Core\\Interfaces\\IMyConexion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-07T03:51:55.379Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.API\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "PatitasCalchaquies.API\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.API\\appsettings.Development.json",
+              "RelativeToolTip": "PatitasCalchaquies.API\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-09-07T03:50:40.94Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="PatitasCalchaquies.API/PatitasCalchaquies.API.csproj" />
+  <Project Path="PatitasCalchaquies.Core/PatitasCalchaquies.Core.csproj" />
+  <Project Path="PatitasCalchaquies.Infrastructure/PatitasCalchaquies.Infrastructure.csproj" />
+  <Project Path="PatitasCalchaquies.Shared/PatitasCalchaquies.Shared.csproj" />
+  <Project Path="PatitasCalchaquies.Tests/PatitasCalchaquies.Tests.csproj" />
+</Solution>

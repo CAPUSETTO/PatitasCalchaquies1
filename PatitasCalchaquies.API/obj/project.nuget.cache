@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "dgSpecHash": "84vAMx+2ICs=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.API\\PatitasCalchaquies.API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sebaz\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.9\\microsoft.aspnetcore.openapi.10.0.9.nupkg.sha512",
+    "C:\\Users\\sebaz\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512",
+    "C:\\Users\\sebaz\\.nuget\\packages\\mysqlconnector\\2.6.2\\mysqlconnector.2.6.2.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "message": "El paquete \"Microsoft.OpenApi\" 2.0.0 tiene una vulnerabilidad de gravedad alta conocida, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc",
+      "projectPath": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.API\\PatitasCalchaquies.API.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\sebaz\\Documents\\trabajo cano\\PatitasCalchaquies\\PatitasCalchaquies.API\\PatitasCalchaquies.API.csproj",
+      "libraryId": "Microsoft.OpenApi",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
+}
