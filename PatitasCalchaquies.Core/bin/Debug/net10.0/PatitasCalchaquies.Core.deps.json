@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "PatitasCalchaquies.Core/1.0.0": {
+        "dependencies": {
+          "PatitasCalchaquies.Shared": "1.0.0"
+        },
+        "runtime": {
+          "PatitasCalchaquies.Core.dll": {}
+        }
+      },
+      "PatitasCalchaquies.Shared/1.0.0": {
+        "runtime": {
+          "PatitasCalchaquies.Shared.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "PatitasCalchaquies.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PatitasCalchaquies.Shared/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

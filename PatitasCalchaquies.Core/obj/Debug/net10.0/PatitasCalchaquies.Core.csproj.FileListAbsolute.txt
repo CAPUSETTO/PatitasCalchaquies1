@@ -1,0 +1,16 @@
+/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Core/bin/Debug/net10.0/PatitasCalchaquies.Core.deps.json
+/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Core/bin/Debug/net10.0/PatitasCalchaquies.Core.dll
+/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Core/bin/Debug/net10.0/PatitasCalchaquies.Core.pdb
+/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Core/bin/Debug/net10.0/PatitasCalchaquies.Shared.dll
+/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Core/bin/Debug/net10.0/PatitasCalchaquies.Shared.pdb
+/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Core/obj/Debug/net10.0/PatitasCalchaquies.Core.csproj.AssemblyReference.cache
+/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Core/obj/Debug/net10.0/PatitasCalchaquies.Core.GeneratedMSBuildEditorConfig.editorconfig
+/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Core/obj/Debug/net10.0/PatitasCalchaquies.Core.AssemblyInfoInputs.cache
+/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Core/obj/Debug/net10.0/PatitasCalchaquies.Core.AssemblyInfo.cs
+/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Core/obj/Debug/net10.0/PatitasCalchaquies.Core.csproj.CoreCompileInputs.cache
+/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Core/obj/Debug/net10.0/PatitasCalchaquies.Core.sourcelink.json
+/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Core/obj/Debug/net10.0/PatitasC.8C7C2C54.Up2Date
+/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Core/obj/Debug/net10.0/PatitasCalchaquies.Core.dll
+/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Core/obj/Debug/net10.0/refint/PatitasCalchaquies.Core.dll
+/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Core/obj/Debug/net10.0/PatitasCalchaquies.Core.pdb
+/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Core/obj/Debug/net10.0/ref/PatitasCalchaquies.Core.dll

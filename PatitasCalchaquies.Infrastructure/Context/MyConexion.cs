@@ -2,7 +2,7 @@
 using PatitasCalchaquies.Core.Interfaces;
 using System.Threading.Tasks;
 
-namespace PatitasCalchaquies.Infrastructure.Contexto
+namespace PatitasCalchaquies.Infrastructure.Context
 {
     public class MyConexion : IMyConexion
     {
