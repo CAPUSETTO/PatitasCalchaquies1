@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using PatitasCalchaquies.Core.Interfaces;
-using PatitasCalchaquies.Infrastructure.Contexto;
+using PatitasCalchaquies.Infrastructure.Context;
 
 using Microsoft.Extensions.Configuration;
 
