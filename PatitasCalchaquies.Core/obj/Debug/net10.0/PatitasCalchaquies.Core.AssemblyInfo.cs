@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PatitasCalchaquies.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2040871b434f32e5147ba1fdc8951d9d62839202")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e288138bab53c8bcc7262e2456f6024da5af63d4")]
 [assembly: System.Reflection.AssemblyProductAttribute("PatitasCalchaquies.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PatitasCalchaquies.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
