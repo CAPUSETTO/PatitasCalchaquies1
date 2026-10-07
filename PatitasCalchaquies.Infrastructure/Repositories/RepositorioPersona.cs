@@ -14,11 +14,11 @@ public class RepositorioPersona : IRepositoryPersona
         _conn = conn;
     }
 
-    public Task<IEnumerable<Persona>> ObtenerTodosAsync()
+    public async Task<IEnumerable<Persona>> ObtenerTodosAsync()
     {
         try
         {
-            using IDbConnection _conexion = _conn.obtenerConexion();
+            using IDbConnection _conexion = await _conn.obtenerConexionAsync();
             using IDbCommand _comando = _conexion.CreateCommand();
             _comando.CommandType = CommandType.StoredProcedure;
             _comando.CommandText = "sp_persona_obtener_todos";
@@ -52,11 +52,11 @@ public class RepositorioPersona : IRepositoryPersona
         }
     }
 
-    public Task<Persona> ObtenerPorDniAsync(string dni)
+    public async Task<Persona?> ObtenerPorDniAsync(string dni)
     {
         try
         {
-            using IDbConnection _conexion = _conn.obtenerConexion();
+            using IDbConnection _conexion = await _conn.obtenerConexionAsync();
             using IDbCommand _comando = _conexion.CreateCommand();
             _comando.CommandType = CommandType.StoredProcedure;
             _comando.CommandText = "sp_persona_obtener_por_dni";
@@ -93,11 +93,11 @@ public class RepositorioPersona : IRepositoryPersona
         }
     }
 
-    public Task<Persona> ObtenerPorIdAsync(int idPersona)
+    public async Task<Persona?> ObtenerPorIdAsync(int idPersona)
     {
         try
         {
-            using IDbConnection _conexion = _conn.obtenerConexion();
+            using IDbConnection _conexion = await _conn.obtenerConexionAsync();
             using IDbCommand _comando = _conexion.CreateCommand();
             _comando.CommandType = CommandType.StoredProcedure;
             _comando.CommandText = "sp_persona_obtener_por_id";
@@ -134,11 +134,11 @@ public class RepositorioPersona : IRepositoryPersona
         }
     }
     
-    public Task<int> CrearPersonaAsync(Persona persona)
+    public async Task<int> CrearPersonaAsync(Persona persona)
     {
         try
         {
-            using IDbConnection _conexion = _conn.obtenerConexion();
+            using IDbConnection _conexion = await _conn.obtenerConexionAsync();
             using IDbCommand _comando = _conexion.CreateCommand();
             _comando.CommandType = CommandType.StoredProcedure;
             _comando.CommandText = "sp_persona_crear";
@@ -169,11 +169,11 @@ public class RepositorioPersona : IRepositoryPersona
         }
     }
 
-    public Task<bool> ActualizarPersonaAsync(Persona persona)
+    public async Task<bool> ActualizarPersonaAsync(Persona persona)
     {
         try
         {
-            using IDbConnection _conexion = _conn.obtenerConexion();
+            using IDbConnection _conexion = await _conn.obtenerConexionAsync();
             using IDbCommand _comando = _conexion.CreateCommand();
             _comando.CommandType = CommandType.StoredProcedure;
             _comando.CommandText = "sp_persona_actualizar";
@@ -205,11 +205,11 @@ public class RepositorioPersona : IRepositoryPersona
         }
     }
 
-    public Task<bool> EliminarPersona(int id)
+    public async Task<bool> EliminarPersona(int id)
     {
         try
         {
-            using  IDbConnection _conexion = _conn.obtenerConexion();
+            using  IDbConnection _conexion = await _conn.obtenerConexionAsync();
             using IDbCommand _comando = _conexion.CreateCommand();
             _comando.CommandType = CommandType.StoredProcedure;
             _comando.CommandText = "sp_persona_eliminar";
@@ -229,11 +229,11 @@ public class RepositorioPersona : IRepositoryPersona
         }
     }
     
-    public Task<bool> ExisteDniAsync(string dni)
+    public async Task<bool> ExisteDniAsync(string dni)
     {
         try
         {
-            using IDbConnection _conexion = _conn.obtenerConexion();
+            using IDbConnection _conexion = await _conn.obtenerConexionAsync();
             using IDbCommand _comando = _conexion.CreateCommand();
             _comando.CommandType = CommandType.StoredProcedure;
             _comando.CommandText = "sp_persona_existe_dni";
@@ -257,11 +257,11 @@ public class RepositorioPersona : IRepositoryPersona
         }
     }
 
-    public Task<bool> ExisteEmailAsync(string email)
+    public async Task<bool> ExisteEmailAsync(string email)
     {
         try
         {
-            using IDbConnection _conexion = _conn.obtenerConexion();
+            using IDbConnection _conexion = await _conn.obtenerConexionAsync();
             using IDbCommand _comando = _conexion.CreateCommand();
             _comando.CommandType = CommandType.StoredProcedure;
             _comando.CommandText = "sp_persona_existe_email";
@@ -285,11 +285,11 @@ public class RepositorioPersona : IRepositoryPersona
         }
     }
     
-    public Task<IEnumerable<Persona>> BuscarPersona(string nombre)
+    public async Task<IEnumerable<Persona>> BuscarPersona(string nombre)
     {
         try
         {
-            using IDbConnection _conexion = _conn.obtenerConexion();
+            using IDbConnection _conexion = await _conn.obtenerConexionAsync();
             using IDbCommand _comando = _conexion.CreateCommand();
             _comando.CommandType = CommandType.StoredProcedure;
             _comando.CommandText = "sp_persona_buscar";
