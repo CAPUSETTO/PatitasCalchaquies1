@@ -201,7 +201,7 @@ public class RepositorioPersona : IRepositoryPersona
         catch (Exception error)
         {
             ArchivoLog.RegistrarErrores(error);
-            return false;
+            throw;
         }
     }
 

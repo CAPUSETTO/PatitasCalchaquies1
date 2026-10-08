@@ -1,12 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
+using PatitasCalchaquies.API.DTOs;
 using PatitasCalchaquies.Core.Entities;
 using PatitasCalchaquies.Core.Services;
+using MySqlConnector;
 
 namespace PatitasCalchaquies.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-
 public class PersonasController : ControllerBase
 {
     private readonly ServicioPersona _servicio;
@@ -23,75 +24,143 @@ public class PersonasController : ControllerBase
         return Ok(personas);
     }
 
-    [HttpGet("{Id}")]
+    [HttpGet("{id:int}")]
     public async Task<IActionResult> GetById(int id)
     {
-        var personas = await _servicio.GetByIdAsync(id);
-        if (personas == null)
+        var persona = await _servicio.GetByIdAsync(id);
+        if (persona == null)
         {
             return NotFound();
         }
-        return Ok(personas);
+        return Ok(persona);
     }
 
-    [HttpGet("{dni}")]
+    [HttpGet("dni/{dni}")]
     public async Task<IActionResult> GetByDni(string dni)
     {
-        var personas = await _servicio.GetByDniAsync(dni);
-        if (personas == null)
+        var persona = await _servicio.GetByDniAsync(dni);
+        if (persona == null)
         {
             return NotFound();
         }
-        return Ok(personas);
+        return Ok(persona);
     }
 
     [HttpGet("buscar")]
     public async Task<IActionResult> Buscar([FromQuery] string nombre)
     {
-        var resultados = _servicio.BuscarPersonaAsync(nombre);
-        return Ok(resultados);
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> Crear([FromBody] Persona persona)
-    {
         try
         {
-            int nuevoId = await _servicio.CrearPersonaAsync(persona);
-            persona.IdPersona = nuevoId;
-            
-            return CreatedAtAction(nameof(GetById), new { id = nuevoId }, persona);
+            var resultados = await _servicio.BuscarPersonaAsync(nombre);
+            return Ok(resultados);
         }
         catch (ArgumentException ex)
         {
             return BadRequest(new { message = ex.Message });
         }
-        catch (Exception ex)
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Crear([FromBody] PersonaCrearDto dto)
+    {
+        try
+        {
+            Persona persona = new Persona
+            {
+                Apellido = dto.Apellido,
+                Nombre = dto.Nombre,
+                Dni = dto.Dni,
+                Telefono = dto.Telefono,
+                Email = dto.Email,
+                Direccion = dto.Direccion
+            };
+
+            int nuevoId = await _servicio.CrearPersonaAsync(persona);
+            persona.IdPersona = nuevoId;
+
+            PersonaDto nuevaPersona = new PersonaDto
+            {
+                IdPersona = persona.IdPersona,
+                Apellido = persona.Apellido ?? string.Empty,
+                Nombre = persona.Nombre ?? string.Empty,
+                Dni = persona.Dni,
+                Telefono = persona.Telefono,
+                Email = persona.Email,
+                Direccion = persona.Direccion,
+                FechaAlta = persona.FechaAlta,
+                Activo = persona.Activo
+            };
+            
+            return CreatedAtAction(nameof(GetById), new { id = nuevoId }, nuevaPersona);
+        }
+        catch (ArgumentException ex)
+        {
+            return BadRequest(new { message = ex.Message });
+        }
+        catch (InvalidOperationException ex)
         {
             return Conflict(new { message = ex.Message });
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { message = ex.Message });
         }
     }
 
     [HttpPut("{id:int}")]
-    public async Task<IActionResult> Actualizar([FromBody] int id, Persona persona)
+    public async Task<IActionResult> Actualizar(int id, [FromBody] PersonaActualizarDto dto)
     {
-        if (id != persona.IdPersona)
+        if (id != dto.IdPersona)
         {
-            return BadRequest(new {error = "El ID no coincide con el cuerpo petición"});
+            return BadRequest(new { error = "El ID de la URL no coincide con el cuerpo de la petición" });
         }
 
         try
         {
+            Persona persona = new Persona
+            {
+                IdPersona = dto.IdPersona,
+                Apellido = dto.Apellido,
+                Nombre = dto.Nombre,
+                Dni = dto.Dni,
+                Telefono = dto.Telefono,
+                Email = dto.Email,
+                Direccion = dto.Direccion,
+                Activo = dto.Activo ?? false
+            };
+
             bool resultado = await _servicio.ActualizarPersonaAsync(persona);
-            if (resultado)
+            if (!resultado)
             {
                 return NotFound(new { mensaje = $"No se pudo encontrar la persona con ID {id} para actualizar." });
             }
-            return Ok(new { mensaje = "Persona actualizada correctamente." });
+
+            PersonaDto personaActualizada = new PersonaDto
+            {
+                IdPersona = persona.IdPersona,
+                Apellido = persona.Apellido ?? string.Empty,
+                Nombre = persona.Nombre ?? string.Empty,
+                Dni = persona.Dni,
+                Telefono = persona.Telefono,
+                Email = persona.Email,
+                Direccion = persona.Direccion,
+                FechaAlta = persona.FechaAlta,
+                Activo = persona.Activo
+            };
+
+            return Ok(personaActualizada);
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(new { message = ex.Message });
         }
         catch (ArgumentException ex)
         {
-            return  BadRequest(new { message = ex.Message });
+            return BadRequest(new { message = ex.Message });
+        }
+        catch (MySqlException ex)
+        {
+            return BadRequest(new { message = ex.Message });
         }
     }
 
@@ -105,13 +174,15 @@ public class PersonasController : ControllerBase
             {
                 return NotFound(new { mensaje = $"No se encontró la persona con ID {id} para eliminar." });
             }
-            return Ok(new { mensaje = "Persona eliminada correctamente." });
+            return NoContent();
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(new { message = ex.Message });
         }
         catch (ArgumentException ex)
         {
             return BadRequest(new { message = ex.Message });
         }
     }
-    
-    
 }

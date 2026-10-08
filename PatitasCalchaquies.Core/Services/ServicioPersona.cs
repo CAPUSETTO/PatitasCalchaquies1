@@ -39,7 +39,7 @@ public class ServicioPersona
     {
         if (string.IsNullOrWhiteSpace(texto))
         {
-            return await _repositorio.ObtenerTodosAsync()
+            return await _repositorio.ObtenerTodosAsync();
         }
         return await _repositorio.BuscarPersona(texto);
     }
@@ -61,10 +61,12 @@ public class ServicioPersona
             throw new ArgumentException("El DNI ya existe registrado en otra persona.");
         }
 
-        if (string.IsNullOrWhiteSpace(persona.Email && await _repositorio.ExisteEmailAsync(persona.Email)))
+        if (string.IsNullOrWhiteSpace(persona.Email) && await _repositorio.ExisteEmailAsync(persona.Email))
         {
-            throw new InvalidOperationException("Ya existe una persona registrada con ese email.")
+            throw new InvalidOperationException("Ya existe una persona registrada con ese email.");
         }
+        
+        return await _repositorio.CrearPersonaAsync(persona);
     }
 
     public async Task<bool> ActualizarPersonaAsync(Persona persona)
