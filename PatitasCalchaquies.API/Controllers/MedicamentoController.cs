@@ -1,3 +1,5 @@
+using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using PatitasCalchaquies.API.DTOs;
 using PatitasCalchaquies.Core.Entities;
@@ -12,10 +14,14 @@ namespace PatitasCalchaquies.API.Controllers;
 public class MedicamentoController : ControllerBase
     {
         private readonly ServicioMedicamento _serviceMedicamento;
+        private readonly IValidator<MedicamentoCrearDto> _validatorCrearMedicamento;
+        private readonly IMapper _mapper;
 
-        public MedicamentoController(ServicioMedicamento serviceMedicamento)
+        public MedicamentoController(ServicioMedicamento serviceMedicamento, IValidator<MedicamentoCrearDto> validatorCrearMedicamento, IMapper mapper)
         {
             _serviceMedicamento = serviceMedicamento;
+            _validatorCrearMedicamento = validatorCrearMedicamento;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -54,25 +60,25 @@ public class MedicamentoController : ControllerBase
         [HttpPost]
         public async Task<IActionResult> Crear([FromBody] MedicamentoCrearDto dto)
         {
+            var validationResult = await _validatorCrearMedicamento.ValidateAsync(dto);
+            if (!validationResult.IsValid)
+            {
+                var errores =  validationResult.Errors.Select(x => x.ErrorMessage).ToList();
+                return BadRequest(new { Mensaje = "Error de validación", Errores = errores });
+            }
+            
             try
             {
-                Medicamento medicamento = new Medicamento
-                {
-                    Nombre = dto.nombre,
-                    Descripcion = dto.descripcion
-                };
+                //Mapeo de DTO -> Entidad con AutoMapper (¡en una sola línea!)
+                Medicamento medicamento =  _mapper.Map<Medicamento>(dto);
                 
                 int nuevoId = await _serviceMedicamento.CrearMedicamentoAsync(medicamento);
                 medicamento.IdMedicamento = nuevoId;
-
-                MedicamentoDto nuevoMedicamento = new MedicamentoDto
-                {
-                    IdMedicamento = medicamento.IdMedicamento,
-                    nombre = medicamento.Nombre,
-                    descripcion = medicamento.Descripcion
-                };
                 
-                return CreatedAtAction(nameof(GetById), new { id = medicamento.IdMedicamento }, nuevoMedicamento);
+                //Respuesta
+                MedicamentoDto medicamentoDto = _mapper.Map<MedicamentoDto>(medicamento);
+                
+                return CreatedAtAction(nameof(GetById), new { id = medicamento.IdMedicamento }, medicamentoDto);
             }
             catch (ArgumentException ex)
             {
@@ -98,26 +104,17 @@ public class MedicamentoController : ControllerBase
 
             try
             {
-                Medicamento medicamento = new Medicamento
-                {
-                    IdMedicamento = dto.IdMedicamento,
-                    Nombre = dto.nombre,
-                    Descripcion = dto.descripcion
-                };
+                Medicamento medicamento = _mapper.Map<Medicamento>(dto);
+                
                 bool resultado = await _serviceMedicamento.ActualizarAsync(medicamento);
                 if (!resultado)
                 {
                     return NotFound(new {mensaje = $"No se pudo encontrar la persona con ID {idMedicamento} para actualizar."});
                 }
-
-                MedicamentoDto medicamentoActualizado = new MedicamentoDto
-                {
-                    IdMedicamento = medicamento.IdMedicamento,
-                    nombre = medicamento.Nombre,
-                    descripcion = medicamento.Descripcion
-                };
                 
-                return Ok(medicamentoActualizado);
+                MedicamentoDto medicamentoDto = _mapper.Map<MedicamentoDto>(medicamento);
+                
+                return Ok(medicamentoDto);
             }
             catch (KeyNotFoundException ex)
             {

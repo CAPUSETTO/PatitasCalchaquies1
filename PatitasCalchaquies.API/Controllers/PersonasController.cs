@@ -1,3 +1,5 @@
+using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using PatitasCalchaquies.API.DTOs;
 using PatitasCalchaquies.Core.Entities;
@@ -11,10 +13,14 @@ namespace PatitasCalchaquies.API.Controllers;
 public class PersonasController : ControllerBase
 {
     private readonly ServicioPersona _servicio;
+    private readonly IValidator<PersonaCrearDto> _validatorCrearPersona;
+    private readonly IMapper _mapper;
 
-    public PersonasController(ServicioPersona servicio)
+    public PersonasController(ServicioPersona servicio,  IValidator<PersonaCrearDto> validatorCrearPersona,IMapper mapper)
     {
         _servicio = servicio;
+        _validatorCrearPersona = validatorCrearPersona;
+        _mapper = mapper;
     }
 
     [HttpGet]
@@ -63,35 +69,24 @@ public class PersonasController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Crear([FromBody] PersonaCrearDto dto)
     {
+
+        var validationResult = await _validatorCrearPersona.ValidateAsync(dto);
+        if (!validationResult.IsValid)
+        {
+            var errores = validationResult.Errors.Select(e => e.ErrorMessage).ToList();
+            return BadRequest(new { Mensaje = "Error de validación", Errores = errores });
+        }
+        
         try
         {
-            Persona persona = new Persona
-            {
-                Apellido = dto.Apellido,
-                Nombre = dto.Nombre,
-                Dni = dto.Dni,
-                Telefono = dto.Telefono,
-                Email = dto.Email,
-                Direccion = dto.Direccion
-            };
+            Persona persona = _mapper.Map<Persona>(dto);
 
             int nuevoId = await _servicio.CrearPersonaAsync(persona);
             persona.IdPersona = nuevoId;
 
-            PersonaDto nuevaPersona = new PersonaDto
-            {
-                IdPersona = persona.IdPersona,
-                Apellido = persona.Apellido ?? string.Empty,
-                Nombre = persona.Nombre ?? string.Empty,
-                Dni = persona.Dni,
-                Telefono = persona.Telefono,
-                Email = persona.Email,
-                Direccion = persona.Direccion,
-                FechaAlta = persona.FechaAlta,
-                Activo = persona.Activo
-            };
+            PersonaDto personaDto = _mapper.Map<PersonaDto>(persona);
             
-            return CreatedAtAction(nameof(GetById), new { id = nuevoId }, nuevaPersona);
+            return CreatedAtAction(nameof(GetById), new { id = nuevoId }, personaDto);
         }
         catch (ArgumentException ex)
         {
@@ -117,17 +112,7 @@ public class PersonasController : ControllerBase
 
         try
         {
-            Persona persona = new Persona
-            {
-                IdPersona = dto.IdPersona,
-                Apellido = dto.Apellido,
-                Nombre = dto.Nombre,
-                Dni = dto.Dni,
-                Telefono = dto.Telefono,
-                Email = dto.Email,
-                Direccion = dto.Direccion,
-                Activo = dto.Activo ?? false
-            };
+            Persona persona =  _mapper.Map<Persona>(dto);
 
             bool resultado = await _servicio.ActualizarPersonaAsync(persona);
             if (!resultado)
@@ -135,20 +120,9 @@ public class PersonasController : ControllerBase
                 return NotFound(new { mensaje = $"No se pudo encontrar la persona con ID {id} para actualizar." });
             }
 
-            PersonaDto personaActualizada = new PersonaDto
-            {
-                IdPersona = persona.IdPersona,
-                Apellido = persona.Apellido ?? string.Empty,
-                Nombre = persona.Nombre ?? string.Empty,
-                Dni = persona.Dni,
-                Telefono = persona.Telefono,
-                Email = persona.Email,
-                Direccion = persona.Direccion,
-                FechaAlta = persona.FechaAlta,
-                Activo = persona.Activo
-            };
+            PersonaDto personaDto = _mapper.Map<PersonaDto>(persona);
 
-            return Ok(personaActualizada);
+            return Ok(personaDto);
         }
         catch (KeyNotFoundException ex)
         {

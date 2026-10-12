@@ -1,3 +1,5 @@
+using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using PatitasCalchaquies.API.DTOs;
 using PatitasCalchaquies.Core.Entities;
@@ -12,10 +14,14 @@ namespace PatitasCalchaquies.API.Controllers;
 public class VacunaController : ControllerBase
 {
     private readonly ServicioVacuna _serviceVacuna;
+    private readonly IValidator<VacunaCrearDto> _validatorCrearVacuna;
+    private readonly IMapper _mapper;
 
-    public VacunaController(ServicioVacuna serviceVacuna)
+    public VacunaController(ServicioVacuna serviceVacuna,  IValidator<VacunaCrearDto> validatorCrearVacuna, IMapper mapper)
         {
             _serviceVacuna = serviceVacuna;
+            _validatorCrearVacuna = validatorCrearVacuna;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -54,25 +60,22 @@ public class VacunaController : ControllerBase
         [HttpPost]
         public async Task<IActionResult> Crear([FromBody] VacunaCrearDto dto)
         {
+            var validationResult = await _validatorCrearVacuna.ValidateAsync(dto);
+            if (!validationResult.IsValid)
+            {
+                var errores =  validationResult.Errors.Select(x => x.ErrorMessage).ToList();
+                return BadRequest(new { Mensaje = "Error de validación", Errores = errores });
+            }
             try
             {
-                Vacuna vacuna = new Vacuna
-                {
-                    Nombre = dto.nombre,
-                    Descripcion = dto.descripcion
-                };
+                Vacuna vacuna = _mapper.Map<Vacuna>(dto);
                 
                 int nuevoId = await _serviceVacuna.CrearVacunaAsync(vacuna);
                 vacuna.IdVacuna = nuevoId;
 
-                VacunaDto nuevoVacuna = new VacunaDto
-                {
-                    IdVacuna = vacuna.IdVacuna,
-                    nombre = vacuna.Nombre,
-                    descripcion = vacuna.Descripcion
-                };
+                VacunaDto vacunaDto = _mapper.Map<VacunaDto>(vacuna);
                 
-                return CreatedAtAction(nameof(GetById), new { id = vacuna.IdVacuna }, nuevoVacuna);
+                return CreatedAtAction(nameof(GetById), new { id = vacuna.IdVacuna }, vacunaDto);
             }
             catch (ArgumentException ex)
             {
@@ -98,26 +101,17 @@ public class VacunaController : ControllerBase
 
             try
             {
-                Vacuna vacuna = new Vacuna
-                {
-                    IdVacuna = dto.IdVacuna,
-                    Nombre = dto.nombre,
-                    Descripcion = dto.descripcion
-                };
+                Vacuna vacuna = _mapper.Map<Vacuna>(dto);
+                
                 bool resultado = await _serviceVacuna.ActualizarAsync(vacuna);
                 if (!resultado)
                 {
                     return NotFound(new {mensaje = $"No se pudo encontrar la persona con ID {idVacuna} para actualizar."});
                 }
 
-                VacunaDto vacunaActualizado = new VacunaDto
-                {
-                    IdVacuna = vacuna.IdVacuna,
-                    nombre = vacuna.Nombre,
-                    descripcion = vacuna.Descripcion
-                };
+                VacunaDto vacunaDto = _mapper.Map<VacunaDto>(vacuna);
                 
-                return Ok(vacunaActualizado);
+                return Ok(vacunaDto);
             }
             catch (KeyNotFoundException ex)
             {

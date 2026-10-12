@@ -1,3 +1,5 @@
+using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using PatitasCalchaquies.API.DTOs;
 using PatitasCalchaquies.Core.Entities;
@@ -12,10 +14,14 @@ namespace PatitasCalchaquies.API.Controllers;
 public class RazaController : ControllerBase
 {
     private readonly ServicioRaza _serviceRaza;
+    private readonly IValidator<RazaCrearDto> _validatorCrearRaza;
+    private readonly IMapper _mapper;
 
-    public RazaController(ServicioRaza serviceRaza)
+    public RazaController(ServicioRaza serviceRaza,  IValidator<RazaCrearDto> validatorCrearRaza,IMapper mapper)
     {
         _serviceRaza = serviceRaza;
+        _validatorCrearRaza = validatorCrearRaza;
+        _mapper = mapper;
     }
     
     [HttpGet]
@@ -42,25 +48,22 @@ public class RazaController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] RazaCrearDto dto)
     {
+        var validationResult = await _validatorCrearRaza.ValidateAsync(dto);
+        if (!validationResult.IsValid)
+        {
+            var errores =  validationResult.Errors.Select(x => x.ErrorMessage).ToList();
+            return BadRequest(new { Mensaje = "Error de validación", Errores = errores });
+        }
         try
         {
-            var raza = new Raza
-            {
-                IdEspecie = dto.IdEspecie,
-                Nombre = dto.Nombre
-            };
+            Raza raza = _mapper.Map<Raza>(dto);
 
             int id = await _serviceRaza.CrearAsync(raza);
             raza.IdRaza = id;
 
-            var respuesta = new RazaDto
-            {
-                IdRaza = raza.IdRaza,
-                IdEspecie = raza.IdEspecie,
-                Nombre = raza.Nombre
-            };
+            RazaDto razaDto = _mapper.Map<RazaDto>(raza);
 
-            return Ok(respuesta);
+            return Ok(razaDto);
         }
         catch (ArgumentException ex)
         {
