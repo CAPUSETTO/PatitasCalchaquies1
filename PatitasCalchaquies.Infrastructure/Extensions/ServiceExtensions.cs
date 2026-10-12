@@ -26,6 +26,9 @@ namespace PatitasCalchaquies.Infrastructure.Extensions
             //Vacuna
             services.AddScoped<IRepositoryVacuna, RepositorioVacuna>();
             services.AddScoped<ServicioVacuna>();
+            //Raza
+            services.AddScoped<IRepositoryRaza, RepositorioRaza>();
+            services.AddScoped<ServicioRaza>();
 
             return services;
         }

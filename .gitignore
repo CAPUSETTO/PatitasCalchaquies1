@@ -1,0 +1,56 @@
+## ========================================================
+## Archivos de compilación y temporales de .NET / C#
+## ========================================================
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+
+## ========================================================
+## Entornos de desarrollo e IDEs
+## ========================================================
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Visual Studio
+.vs/
+*.vsp
+*.vspx
+*.sap
+*.opendb
+*.VC.db
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+## ========================================================
+## Pruebas de APIs y Clientes HTTP
+## ========================================================
+# Bruno (ignora entornos con contraseñas o tokens locales)
+.bru/
+*environments/*.secret.json
+
+## ========================================================
+## Secretos y configuración sensible
+## ========================================================
+# Descomenta appsettings.Development.json si contiene contraseñas reales de MySQL
+# appsettings.Development.json
+appsettings.*.local.json
+secrets.json
+
+## ========================================================
+## Archivos del Sistema Operativo
+## ========================================================
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
