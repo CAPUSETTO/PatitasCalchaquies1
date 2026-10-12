@@ -17,8 +17,15 @@ namespace PatitasCalchaquies.Infrastructure.Extensions
                 ?? throw new InvalidOperationException("La cadena de conexión 'DefaultConnection' no está configurada.");
 
             services.AddSingleton<IMyConexion>(new MyConexion(connectionString));
+            //persona
             services.AddScoped<IRepositoryPersona, RepositorioPersona>();
             services.AddScoped<ServicioPersona>();
+            //medicamento
+            services.AddScoped<IRepositoryMedicamento, RepositorioMedicamento>();
+            services.AddScoped<ServicioMedicamento>();
+            //Vacuna
+            services.AddScoped<IRepositoryVacuna, RepositorioVacuna>();
+            services.AddScoped<ServicioVacuna>();
 
             return services;
         }

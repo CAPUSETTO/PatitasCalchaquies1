@@ -7,13 +7,13 @@ using PatitasCalchaquies.Infrastructure.Context;
 
 namespace PatitasCalchaquies.Infrastructure.Repositories;
 
-public class RepositorioMedicamento
+public class RepositorioMedicamento : IRepositoryMedicamento
 {
     private readonly IMyConexion _conn;
 
     public RepositorioMedicamento(IMyConexion conn)
     {
-        _conn = conn
+        _conn = conn;
     }
 
     public async Task<IEnumerable<Medicamento>> ObtenerTodosAsync()
@@ -48,7 +48,7 @@ public class RepositorioMedicamento
         }
     }
 
-    public async Task<Persona?> ObtenerPorIdAsync(int id)
+    public async Task<Medicamento?> ObtenerPorIdAsync(int id)
     {
         try
         {
@@ -66,12 +66,12 @@ public class RepositorioMedicamento
 
             if (reader.Read())
             {
-                return new Medicamento()
+                return new Medicamento
                 {
                     IdMedicamento = reader.GetInt32(0),
                     Nombre = reader.GetString(1),
                     Descripcion = reader.GetString(2)
-                }
+                };
             }
             return null;
         }
@@ -168,28 +168,37 @@ public class RepositorioMedicamento
             AddParam("@_nombre", medicamento.Nombre);
             AddParam("@_descripcion", medicamento.Descripcion);
 
-            int filasAfectadas = Convert.ToInt32(comando.ExecuteScalar());
-            return filasAfectadas > 0;[cite: 22]
+            int filasAfectadas = Convert.ToInt32(_comando.ExecuteScalar());
+            return filasAfectadas > 0;
         }
         catch (MySqlException error)
         {
-            ArchivoLog.RegistrarErrores(error);[cite: 22]
-            return false;[cite: 22]
+            ArchivoLog.RegistrarErrores(error);
+            return false;
         }
     }
 
     public async Task<bool> EliminarAsync(int id)
     {
-        using IDbConnection _conexion = await _conn.obtenerConexionAsync();
-        using IDbCommand _comando = _conexion.CreateCommand();
-        _comando.CommandType = CommandType.StoredProcedure;
-        _comando.CommandText = "sp_medicamento_eliminar";
-        
-        IDbDataParameter parametro = _comando.CreateParameter();
-        parametro.ParameterName = "_id";
-        parametro.Value = id;
-        _comando.Parameters.Add(parametro);
-        
-        
+        try
+        {
+            using IDbConnection _conexion = await _conn.obtenerConexionAsync();
+            using IDbCommand _comando = _conexion.CreateCommand();
+            _comando.CommandType = CommandType.StoredProcedure;
+            _comando.CommandText = "sp_medicamento_eliminar";
+
+            IDbDataParameter parametro = _comando.CreateParameter();
+            parametro.ParameterName = "_id";
+            parametro.Value = id;
+            _comando.Parameters.Add(parametro);
+
+            int filasAfectadas = Convert.ToInt32(_comando.ExecuteScalar());
+            return filasAfectadas > 0;
+        }
+        catch (MySqlException error)
+        {
+            ArchivoLog.RegistrarErrores(error);
+            return false;
+        }
     }
 }
