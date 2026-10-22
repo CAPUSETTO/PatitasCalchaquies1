@@ -5,6 +5,7 @@ using PatitasCalchaquies.API.DTOs;
 using PatitasCalchaquies.Core.Entities;
 using PatitasCalchaquies.Core.Services;
 using MySqlConnector;
+using PatitasCalchaquies.API.Validators;
 
 namespace PatitasCalchaquies.API.Controllers;
 
@@ -14,12 +15,14 @@ public class PersonasController : ControllerBase
 {
     private readonly ServicioPersona _servicio;
     private readonly IValidator<PersonaCrearDto> _validatorCrearPersona;
+    private readonly IValidator<PersonaActualizarDto> _validatorActualizarPersona;
     private readonly IMapper _mapper;
 
-    public PersonasController(ServicioPersona servicio,  IValidator<PersonaCrearDto> validatorCrearPersona,IMapper mapper)
+    public PersonasController(ServicioPersona servicio,  IValidator<PersonaCrearDto> validatorCrearPersona,IValidator<PersonaActualizarDto> validatorActualizarPersona, IMapper mapper)
     {
         _servicio = servicio;
         _validatorCrearPersona = validatorCrearPersona;
+        _validatorActualizarPersona = validatorActualizarPersona;
         _mapper = mapper;
     }
 
@@ -108,6 +111,13 @@ public class PersonasController : ControllerBase
         if (id != dto.IdPersona)
         {
             return BadRequest(new { error = "El ID de la URL no coincide con el cuerpo de la petición" });
+        }
+        
+        var validacion = await _validatorActualizarPersona.ValidateAsync(dto);
+        if (!validacion.IsValid)
+        {
+            var errores = validacion.Errors.Select(e => e.ErrorMessage).ToList();
+            return BadRequest(new { mensaje = "Error de validación", errores });
         }
 
         try

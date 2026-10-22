@@ -35,5 +35,11 @@ public class MappeoObjeto : Profile
         CreateMap<Raza, RazaDto>();
         CreateMap<RazaCrearDto, Raza>();
         // (Si llegas a usar actualizar para Raza, se agrega: CreateMap<RazaActualizarDto, Raza>();)
+        
+        // 5. Mapeo Animal
+        
+        CreateMap<Animal, AnimalDto>();
+        CreateMap<AnimalCrearDto, Animal>();
+        CreateMap<AnimalActualizarDto, Animal>();
     }
 }

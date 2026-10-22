@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net10.0": {
+      "Dapper/2.1.89": {
+        "type": "package",
+        "compile": {
+          "lib/net10.0/Dapper.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Dapper.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.Extensions.Configuration.Abstractions/10.0.11": {
         "type": "package",
         "dependencies": {
@@ -115,6 +128,27 @@
     }
   },
   "libraries": {
+    "Dapper/2.1.89": {
+      "sha512": "1VjFE664wnxvuhlgP8kS4PeFFF4jqD3VkbIHW6Zlc52zuibgcz5ICnIHcQXlTp6pURpPNGLV0ZpNe5x9KePJnA==",
+      "type": "package",
+      "path": "dapper/2.1.89",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Dapper.png",
+        "dapper.2.1.89.nupkg.sha512",
+        "dapper.nuspec",
+        "lib/net10.0/Dapper.dll",
+        "lib/net10.0/Dapper.xml",
+        "lib/net461/Dapper.dll",
+        "lib/net461/Dapper.xml",
+        "lib/net8.0/Dapper.dll",
+        "lib/net8.0/Dapper.xml",
+        "lib/netstandard2.0/Dapper.dll",
+        "lib/netstandard2.0/Dapper.xml",
+        "readme.md"
+      ]
+    },
     "Microsoft.Extensions.Configuration.Abstractions/10.0.11": {
       "sha512": "fVi053xdpda9Em7vSkmgVxO/PtgC2m78ekReKWsgcyskqY0U82Bz/MONwxpGzI0hElYKJfw+fupqMVeKW3fSaA==",
       "type": "package",
@@ -321,6 +355,7 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "Dapper >= 2.1.89",
       "Microsoft.Extensions.Configuration.Abstractions >= 10.0.11",
       "Microsoft.Extensions.DependencyInjection.Abstractions >= 10.0.11",
       "MySqlConnector >= 2.6.2",
@@ -378,6 +413,10 @@
       "net10.0": {
         "targetAlias": "net10.0",
         "dependencies": {
+          "Dapper": {
+            "target": "Package",
+            "version": "[2.1.89, )"
+          },
           "Microsoft.Extensions.Configuration.Abstractions": {
             "target": "Package",
             "version": "[10.0.11, )"

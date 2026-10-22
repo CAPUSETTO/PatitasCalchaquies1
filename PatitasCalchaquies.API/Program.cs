@@ -20,9 +20,12 @@ builder.Services.AddEndpointsApiExplorer();
 
 //Validadores
 builder.Services.AddScoped<IValidator<PersonaCrearDto>, PersonaCreateValidator>();
+builder.Services.AddScoped<IValidator<PersonaActualizarDto>, PersonaUpdateValidator>();
 builder.Services.AddScoped<IValidator<MedicamentoCrearDto>, MedicamentoCreateValidator>();
 builder.Services.AddScoped<IValidator<VacunaCrearDto>, VacunaCreateValidator>();
 builder.Services.AddScoped<IValidator<RazaCrearDto>, RazaCreateValidator>();
+builder.Services.AddScoped<IValidator<AnimalCrearDto>, AnimalCreateValidator>();
+builder.Services.AddScoped<IValidator<AnimalActualizarDto>, AnimalUpdateValidator>();
 
 var app = builder.Build();
 

@@ -15,7 +15,9 @@ namespace PatitasCalchaquies.Infrastructure.Extensions
         {
             var connectionString = configuration.GetConnectionString("DefaultConnection")
                 ?? throw new InvalidOperationException("La cadena de conexión 'DefaultConnection' no está configurada.");
-
+            
+            Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
+            
             services.AddSingleton<IMyConexion>(new MyConexion(connectionString));
             //persona
             services.AddScoped<IRepositoryPersona, RepositorioPersona>();
@@ -29,6 +31,9 @@ namespace PatitasCalchaquies.Infrastructure.Extensions
             //Raza
             services.AddScoped<IRepositoryRaza, RepositorioRaza>();
             services.AddScoped<ServicioRaza>();
+            //Animal
+            services.AddScoped<IRepositoryAnimal, RepositorioAnimal>();
+            services.AddScoped<ServicioAnimal>();
 
             return services;
         }

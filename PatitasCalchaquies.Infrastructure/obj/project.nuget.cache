@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "d0wQFI1Sflc=",
+  "dgSpecHash": "mGHTNU4sQRw=",
   "success": true,
   "projectFilePath": "/Users/capusetto/Documents/app/PatitasCalchaquiess/PatitasCalchaquies.Infrastructure/PatitasCalchaquies.Infrastructure.csproj",
   "expectedPackageFiles": [
+    "/Users/capusetto/.nuget/packages/dapper/2.1.89/dapper.2.1.89.nupkg.sha512",
     "/Users/capusetto/.nuget/packages/microsoft.extensions.configuration.abstractions/10.0.11/microsoft.extensions.configuration.abstractions.10.0.11.nupkg.sha512",
     "/Users/capusetto/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/10.0.11/microsoft.extensions.dependencyinjection.abstractions.10.0.11.nupkg.sha512",
     "/Users/capusetto/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.2/microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",

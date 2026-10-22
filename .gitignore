@@ -1,17 +1,26 @@
 ## ========================================================
-## Archivos de compilación y temporales de .NET / C#
+## Compilación y Salidas de .NET / C#
 ## ========================================================
 [Bb]in/
 [Oo]bj/
-[Ll]og/
-[Ll]ogs/
+[Aa]pp_data/
+*.nupkg
+*.snupkg
 *.user
 *.userosscache
-*.sln.docstates
 *.suo
+*.sln.docstates
 
 ## ========================================================
-## Entornos de desarrollo e IDEs
+## Logs y Archivos de Diagnóstico
+## ========================================================
+[Ll]og/
+[Ll]ogs/
+*.log
+*.crashlog
+
+## ========================================================
+## IDEs y Editores de Código
 ## ========================================================
 # JetBrains Rider
 .idea/
@@ -33,16 +42,16 @@
 !.vscode/extensions.json
 
 ## ========================================================
-## Pruebas de APIs y Clientes HTTP
+## Pruebas de API y Clientes HTTP
 ## ========================================================
-# Bruno (ignora entornos con contraseñas o tokens locales)
+# Bruno (ignora entornos con secretos/credenciales locales)
 .bru/
 *environments/*.secret.json
 
 ## ========================================================
-## Secretos y configuración sensible
+## Secretos y Configuraciones Locales
 ## ========================================================
-# Descomenta appsettings.Development.json si contiene contraseñas reales de MySQL
+# Si tienes contraseñas de MySQL en appsettings de desarrollo:
 # appsettings.Development.json
 appsettings.*.local.json
 secrets.json
