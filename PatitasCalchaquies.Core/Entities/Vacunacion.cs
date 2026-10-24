@@ -1,16 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PatitasCalchaquies.Core.Entities
+namespace PatitasCalchaquies.Core.Entities;
+
+[Table("Vacunacion")]
+public class Vacunacion
 {
-    public class Vacunacion
-    {
-        public int IdVacunacion { get; set; }
-        public int IdAnimal { get; set; }
-        public int IdVacuna { get; set; }
-        public DateTime Fecha { get; set; }
-        public DateTime? ProximaFecha { get; set; }
-        public string? Observacion { get; set; }
-    }
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Column("IdVacunacion")]
+    public int IdVacunacion { get; set; }
+
+    [Column("id_animal")]
+    [Required(ErrorMessage = "El animal es obligatorio.")]
+    public int IdAnimal { get; set; }
+
+    [Column("id_vacuna")]
+    [Required(ErrorMessage = "La vacuna es obligatoria.")]
+    public int IdVacuna { get; set; }
+
+    [Column("fecha")]
+    [Required(ErrorMessage = "La fecha de aplicación es obligatoria.")]
+    public DateTime Fecha { get; set; }
+
+    [Column("proxima_fecha")]
+    public DateTime? ProximaFecha { get; set; }
+
+    [Column("observacion")]
+    public string? Observacion { get; set; }
 }

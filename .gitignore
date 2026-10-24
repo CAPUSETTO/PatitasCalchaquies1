@@ -53,8 +53,9 @@
 ## ========================================================
 # Si tienes contraseñas de MySQL en appsettings de desarrollo:
 # appsettings.Development.json
-appsettings.*.local.json
-secrets.json
+**/appsettings.Development.json
+*.csproj.user
+**/secrets.json
 
 ## ========================================================
 ## Archivos del Sistema Operativo
@@ -63,3 +64,4 @@ secrets.json
 Thumbs.db
 ehthumbs.db
 desktop.ini
+**/.DS_Store

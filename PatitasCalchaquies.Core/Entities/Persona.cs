@@ -6,6 +6,7 @@ using System.Text;
 
 namespace PatitasCalchaquies.Core.Entities
 {
+    [Table("Persona")]
     public class Persona
     {
         [Key]

@@ -1,12 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PatitasCalchaquies.Core.Entities
+namespace PatitasCalchaquies.Core.Entities;
+
+[Table("especies")]
+public class Especie
 {
-    public class Especie
-    {
-        public int IdEspecie { get; set; }
-        public required string Nombre { get; set; }
-    }
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Column("IdEspecie")]
+    public int IdEspecie { get; set; }
+
+    [Column("nombre")]
+    [MaxLength(50, ErrorMessage = "El nombre no puede superar los 50 caracteres.")]
+    [Required(ErrorMessage = "El nombre de la especie es obligatorio.")]
+    public required string Nombre { get; set; }
 }

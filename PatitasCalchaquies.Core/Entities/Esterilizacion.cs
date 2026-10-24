@@ -1,16 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PatitasCalchaquies.Core.Entities
+namespace PatitasCalchaquies.Core.Entities;
+
+[Table("esterilizacion")]
+public class Esterilizacion
 {
-    public class Esterilizacion
-    {
-        public int IdEsterilizacion { get; set; }
-        public int IdAnimal { get; set; } // foreign key 
-        public int IdVeterinario { get; set; } // foreign key
-        public DateTime Fecha { get; set; }
-        public required string Tipo { get; set; }
-        public string? Observacion { get; set; }
-    }
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Column("IdEsterilizacion")]
+    public int IdEsterilizacion { get; set; }
+
+    [Column("id_animal")]
+    [Required(ErrorMessage = "El animal es obligatorio.")]
+    public int IdAnimal { get; set; }
+
+    [Column("id_veterinario")]
+    [Required(ErrorMessage = "El veterinario es obligatorio.")]
+    public int IdVeterinario { get; set; }
+
+    [Column("fecha")]
+    [Required(ErrorMessage = "La fecha es obligatoria.")]
+    public DateTime Fecha { get; set; }
+
+    [Column("tipo")]
+    [MaxLength(50, ErrorMessage = "El tipo no puede superar los 50 caracteres.")]
+    [Required(ErrorMessage = "El tipo de esterilización es obligatorio.")]
+    public required string Tipo { get; set; }
+
+    [Column("observacion")]
+    public string? Observacion { get; set; }
 }
