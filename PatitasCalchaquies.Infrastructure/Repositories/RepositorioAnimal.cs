@@ -39,7 +39,7 @@ public class RepositorioAnimal : IRepositoryAnimal
             var parametros = new DynamicParameters();
             parametros.Add("_id", id, DbType.Int32, ParameterDirection.Input);
 
-            return await _conexion.QueryFirstOrDefaultAsync("sp_animal_obtener_por_id", parametros,
+            return await _conexion.QueryFirstOrDefaultAsync<Animal>("sp_animal_obtener_por_id", parametros,
                 commandType: CommandType.StoredProcedure);
 
         }
@@ -82,6 +82,7 @@ public class RepositorioAnimal : IRepositoryAnimal
         {
             using var  conexion = _conn.obtenerConexion();
             var parametros = new DynamicParameters();
+            parametros.Add("_id", animal.IdAnimal, DbType.Int32, ParameterDirection.Input);
             parametros.Add("_nombre", animal.Nombre, DbType.String, ParameterDirection.Input);
             parametros.Add("_codigo_identificacion", animal.CodigoIdentificacion, DbType.String, ParameterDirection.Input);
             parametros.Add("_fecha_ingreso", animal.FechaIngreso, DbType.DateTime, ParameterDirection.Input);

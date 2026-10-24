@@ -18,13 +18,22 @@ builder.Services.AddAutoMapper(cfg => cfg.AddProfile<MappeoObjeto>());
 // Servicios
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
-builder.Services.AddControllers();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
 
 // El puente a Infrastructure (MySQL)
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
 
-//Validadores
+// Validadores
 builder.Services.AddScoped<IValidator<PersonaCrearDto>, PersonaCreateValidator>();
 builder.Services.AddScoped<IValidator<PersonaActualizarDto>, PersonaUpdateValidator>();
 builder.Services.AddScoped<IValidator<MedicamentoCrearDto>, MedicamentoCreateValidator>();
@@ -71,6 +80,8 @@ builder.Services.AddScoped<IValidator<TratamientoActualizarDto>, TratamientoUpda
 builder.Services.AddScoped<IValidator<TratamientoMedicamentoCrearDto>, TratamientoMedicamentoCreateValidator>();
 builder.Services.AddScoped<IValidator<TratamientoMedicamentoActualizarDto>, TratamientoMedicamentoUpdateValidator>();
 builder.Services.AddScoped<IValidator<UsuarioRolCrearDto>, UsuarioRolCreateValidator>();
+builder.Services.AddScoped<IValidator<UsuarioCrearDto>, UsuarioCreateValidator>();
+builder.Services.AddScoped<IValidator<UsuarioActualizarDto>, UsuarioUpdateValidator>();
 builder.Services.AddScoped<IValidator<VacunacionCrearDto>, VacunacionCreateValidator>();
 builder.Services.AddScoped<IValidator<VacunacionActualizarDto>, VacunacionUpdateValidator>();
 builder.Services.AddScoped<IValidator<VeterinarioCrearDto>, VeterinarioCreateValidator>();
@@ -110,8 +121,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseAuthorization();
-app.UseAuthentication(); 
+app.UseCors("AllowFrontend");
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 

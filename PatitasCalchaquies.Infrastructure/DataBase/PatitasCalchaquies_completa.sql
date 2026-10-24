@@ -839,7 +839,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_adopcion_actualizar`(
     IN _observacion TEXT
 )
 BEGIN
-    UPDATE adopciones
+    UPDATE Adopcion
     SET 
         id_solicitud_adopcion = _id_solicitud_adopcion,
         fecha = _fecha,
@@ -869,7 +869,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_adopcion_crear`(
     IN _observacion TEXT
 )
 BEGIN
-    INSERT INTO adopciones (
+    INSERT INTO Adopcion (
         id_solicitud_adopcion,
         fecha,
         observacion
@@ -899,7 +899,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_adopcion_eliminar`(IN _id INT)
 BEGIN
-    DELETE FROM adopciones 
+    DELETE FROM Adopcion 
     WHERE IdAdopcion = _id;
 
     SELECT ROW_COUNT();
@@ -926,7 +926,7 @@ BEGIN
         id_solicitud_adopcion,
         fecha,
         observacion
-    FROM adopciones
+    FROM Adopcion
     WHERE IdAdopcion = _id;
 END ;;
 DELIMITER ;
@@ -951,7 +951,7 @@ BEGIN
         id_solicitud_adopcion,
         fecha,
         observacion
-    FROM adopciones;
+    FROM Adopcion;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -977,7 +977,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_alimentacion_actualizar`(
     IN _observacion TEXT
 )
 BEGIN
-    UPDATE alimentaciones
+    UPDATE Alimentacion
     SET 
         id_animal = _id_animal,
         fecha_hora = _fecha_hora,
@@ -1011,7 +1011,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_alimentacion_crear`(
     IN _observacion TEXT
 )
 BEGIN
-    INSERT INTO alimentaciones (
+    INSERT INTO Alimentacion (
         id_animal,
         fecha_hora,
         tipo_alimento,
@@ -1045,7 +1045,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_alimentacion_eliminar`(IN _id INT)
 BEGIN
-    DELETE FROM alimentaciones 
+    DELETE FROM Alimentacion 
     WHERE IdAlimentacion = _id;
 
     SELECT ROW_COUNT();
@@ -1074,7 +1074,7 @@ BEGIN
         tipo_alimento,
         cantidad,
         observacion
-    FROM alimentaciones
+    FROM Alimentacion
     WHERE IdAlimentacion = _id;
 END ;;
 DELIMITER ;
@@ -1101,7 +1101,7 @@ BEGIN
         tipo_alimento,
         cantidad,
         observacion
-    FROM alimentaciones;
+    FROM Alimentacion;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1127,7 +1127,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_alojamiento_animal_actualizar`(
     IN _observacion TEXT
 )
 BEGIN
-    UPDATE alojamientos_animales
+    UPDATE Alojamiento_Animal
     SET 
         id_animal = _id_animal,
         id_sector = _id_sector,
@@ -1161,7 +1161,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_alojamiento_animal_crear`(
     IN _observacion TEXT
 )
 BEGIN
-    INSERT INTO alojamientos_animales (
+    INSERT INTO Alojamiento_Animal (
         id_animal,
         id_sector,
         fecha_ingreso,
@@ -1195,7 +1195,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_alojamiento_animal_eliminar`(IN _id INT)
 BEGIN
-    DELETE FROM alojamientos_animales 
+    DELETE FROM Alojamiento_Animal 
     WHERE IdAlojamiento = _id;
 
     SELECT ROW_COUNT();
@@ -1224,7 +1224,7 @@ BEGIN
         fecha_ingreso,
         fecha_salida,
         observacion
-    FROM alojamientos_animales
+    FROM Alojamiento_Animal
     WHERE IdAlojamiento = _id;
 END ;;
 DELIMITER ;
@@ -1251,7 +1251,7 @@ BEGIN
         fecha_ingreso,
         fecha_salida,
         observacion
-    FROM alojamientos_animales;
+    FROM Alojamiento_Animal;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1280,7 +1280,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_animal_actualizar`(
     IN _id_estado INT
 )
 BEGIN
-    UPDATE animales
+    UPDATE Animales
     SET 
         nombre = _nombre,
         codigo_identificacion = _codigo_identificacion,
@@ -1320,7 +1320,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_animal_crear`(
     IN _id_estado INT
 )
 BEGIN
-    INSERT INTO animales (
+    INSERT INTO Animales (
         nombre,
         codigo_identificacion,
         fecha_ingreso,
@@ -1360,7 +1360,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_animal_eliminar`(IN _id INT)
 BEGIN
-    DELETE FROM animales 
+    DELETE FROM Animales 
     WHERE IdAnimal = _id;
 
     SELECT ROW_COUNT();
@@ -1392,7 +1392,7 @@ BEGIN
         id_raza,
         id_sexo,
         id_estado
-    FROM animales
+    FROM Animales
     WHERE IdAnimal = _id;
 END ;;
 DELIMITER ;
@@ -1422,7 +1422,7 @@ BEGIN
         id_raza,
         id_sexo,
         id_estado
-    FROM animales;
+    FROM Animales;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1447,7 +1447,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_atencion_veterinaria_actualizar`
     IN _motivo VARCHAR(255)
 )
 BEGIN
-    UPDATE atenciones_veterinarias
+    UPDATE Atencion_Veterinario
     SET 
         id_animal = _id_animal,
         id_veterinario = _id_veterinario,
@@ -1479,7 +1479,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_atencion_veterinaria_crear`(
     IN _motivo VARCHAR(255)
 )
 BEGIN
-    INSERT INTO atenciones_veterinarias (
+    INSERT INTO Atencion_Veterinario (
         id_animal,
         id_veterinario,
         fecha,
@@ -1511,7 +1511,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_atencion_veterinaria_eliminar`(IN _id INT)
 BEGIN
-    DELETE FROM atenciones_veterinarias 
+    DELETE FROM Atencion_Veterinario 
     WHERE IdAtencionVeterinaria = _id;
 
     SELECT ROW_COUNT();
@@ -1539,7 +1539,7 @@ BEGIN
         id_veterinario,
         fecha,
         motivo
-    FROM atenciones_veterinarias
+    FROM Atencion_Veterinario
     WHERE IdAtencionVeterinaria = _id;
 END ;;
 DELIMITER ;
@@ -1565,7 +1565,7 @@ BEGIN
         id_veterinario,
         fecha,
         motivo
-    FROM atenciones_veterinarias;
+    FROM Atencion_Veterinario;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1590,7 +1590,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_devolucion_adopcion_actualizar`(
     IN _observacion TEXT
 )
 BEGIN
-    UPDATE devoluciones_adopciones
+    UPDATE Devolucion_Adopcion
     SET 
         id_adopcion = _id_adopcion,
         fecha = _fecha,
@@ -1622,7 +1622,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_devolucion_adopcion_crear`(
     IN _observacion TEXT
 )
 BEGIN
-    INSERT INTO devoluciones_adopciones (
+    INSERT INTO Devolucion_Adopcion (
         id_adopcion,
         fecha,
         motivo,
@@ -1654,7 +1654,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_devolucion_adopcion_eliminar`(IN _id INT)
 BEGIN
-    DELETE FROM devoluciones_adopciones 
+    DELETE FROM Devolucion_Adopcion 
     WHERE IdDevolucionAdopcion = _id;
 
     SELECT ROW_COUNT();
@@ -1682,7 +1682,7 @@ BEGIN
         fecha,
         motivo,
         observacion
-    FROM devoluciones_adopciones
+    FROM Devolucion_Adopcion
     WHERE IdDevolucionAdopcion = _id;
 END ;;
 DELIMITER ;
@@ -1708,7 +1708,7 @@ BEGIN
         fecha,
         motivo,
         observacion
-    FROM devoluciones_adopciones;
+    FROM Devolucion_Adopcion;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1730,7 +1730,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_especie_actualizar`(
     IN _nombre VARCHAR(50)
 )
 BEGIN
-    UPDATE especies
+    UPDATE Especies
     SET nombre = _nombre
     WHERE IdEspecie = _id;
 
@@ -1755,7 +1755,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_especie_crear`(
     IN _nombre VARCHAR(50)
 )
 BEGIN
-    INSERT INTO especies (nombre)
+    INSERT INTO Especies (nombre)
     VALUES (_nombre);
 
     SELECT LAST_INSERT_ID();
@@ -1777,7 +1777,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_especie_eliminar`(IN _id INT)
 BEGIN
-    DELETE FROM especies 
+    DELETE FROM Especies 
     WHERE IdEspecie = _id;
 
     SELECT ROW_COUNT();
@@ -1802,7 +1802,7 @@ BEGIN
     SELECT 
         IdEspecie,
         nombre
-    FROM especies
+    FROM Especies
     WHERE IdEspecie = _id;
 END ;;
 DELIMITER ;
@@ -1825,7 +1825,7 @@ BEGIN
     SELECT 
         IdEspecie,
         nombre
-    FROM especies;
+    FROM Especies;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1847,7 +1847,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_estado_animal_actualizar`(
     IN _nombre VARCHAR(50)
 )
 BEGIN
-    UPDATE estados_animales
+    UPDATE Estado_Animal
     SET nombre = _nombre
     WHERE IdEstadoAnimal = _id;
 
@@ -1872,7 +1872,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_estado_animal_crear`(
     IN _nombre VARCHAR(50)
 )
 BEGIN
-    INSERT INTO estados_animales (nombre)
+    INSERT INTO Estado_Animal (nombre)
     VALUES (_nombre);
 
     SELECT LAST_INSERT_ID();
@@ -1894,7 +1894,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_estado_animal_eliminar`(IN _id INT)
 BEGIN
-    DELETE FROM estados_animales 
+    DELETE FROM Estado_Animal 
     WHERE IdEstadoAnimal = _id;
 
     SELECT ROW_COUNT();
@@ -1919,7 +1919,7 @@ BEGIN
     SELECT 
         IdEstadoAnimal,
         nombre
-    FROM estados_animales
+    FROM Estado_Animal
     WHERE IdEstadoAnimal = _id;
 END ;;
 DELIMITER ;
@@ -1942,7 +1942,7 @@ BEGIN
     SELECT 
         IdEstadoAnimal,
         nombre
-    FROM estados_animales;
+    FROM Estado_Animal;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1968,7 +1968,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_esterilizacion_actualizar`(
     IN _observacion TEXT
 )
 BEGIN
-    UPDATE esterilizaciones
+    UPDATE Esterilizacion
     SET 
         id_animal = _id_animal,
         id_veterinario = _id_veterinario,
@@ -2002,7 +2002,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_esterilizacion_crear`(
     IN _observacion TEXT
 )
 BEGIN
-    INSERT INTO esterilizaciones (
+    INSERT INTO Esterilizacion (
         id_animal,
         id_veterinario,
         fecha,
@@ -2036,7 +2036,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_esterilizacion_eliminar`(IN _id INT)
 BEGIN
-    DELETE FROM esterilizaciones 
+    DELETE FROM Esterilizacion 
     WHERE IdEsterilizacion = _id;
 
     SELECT ROW_COUNT();
@@ -2065,7 +2065,7 @@ BEGIN
         fecha,
         tipo,
         observacion
-    FROM esterilizaciones
+    FROM Esterilizacion
     WHERE IdEsterilizacion = _id;
 END ;;
 DELIMITER ;
@@ -2092,7 +2092,7 @@ BEGIN
         fecha,
         tipo,
         observacion
-    FROM esterilizaciones;
+    FROM Esterilizacion;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -2117,7 +2117,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_foto_animal_actualizar`(
     IN _fecha DATETIME
 )
 BEGIN
-    UPDATE fotos_animales
+    UPDATE Foto_Animal
     SET 
         id_animal = _id_animal,
         ruta = _ruta,
@@ -2149,7 +2149,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_foto_animal_crear`(
     IN _fecha DATETIME
 )
 BEGIN
-    INSERT INTO fotos_animales (
+    INSERT INTO Foto_Animal (
         id_animal,
         ruta,
         es_principal,
@@ -2181,7 +2181,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_foto_animal_eliminar`(IN _id INT)
 BEGIN
-    DELETE FROM fotos_animales 
+    DELETE FROM Foto_Animal 
     WHERE IdFotoAnimal = _id;
 
     SELECT ROW_COUNT();
@@ -2209,7 +2209,7 @@ BEGIN
         ruta,
         es_principal,
         fecha
-    FROM fotos_animales
+    FROM Foto_Animal
     WHERE IdFotoAnimal = _id;
 END ;;
 DELIMITER ;
@@ -2235,7 +2235,7 @@ BEGIN
         ruta,
         es_principal,
         fecha
-    FROM fotos_animales;
+    FROM Foto_Animal;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -2262,7 +2262,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_ingreso_animal_actualizar`(
     IN _observacion TEXT
 )
 BEGIN
-    UPDATE ingresos_animales
+    UPDATE Ingreso_Animal
     SET 
         id_animal = _id_animal,
         fecha = _fecha,
@@ -2298,7 +2298,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_ingreso_animal_crear`(
     IN _observacion TEXT
 )
 BEGIN
-    INSERT INTO ingresos_animales (
+    INSERT INTO Ingreso_Animal (
         id_animal,
         fecha,
         motivo,
@@ -2334,7 +2334,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_ingreso_animal_eliminar`(IN _id INT)
 BEGIN
-    DELETE FROM ingresos_animales 
+    DELETE FROM Ingreso_Animal 
     WHERE IdIngresoAnimal = _id;
 
     SELECT ROW_COUNT();
@@ -2364,7 +2364,7 @@ BEGIN
         tipo_ingreso,
         lugar_origen,
         observacion
-    FROM ingresos_animales
+    FROM Ingreso_Animal
     WHERE IdIngresoAnimal = _id;
 END ;;
 DELIMITER ;
@@ -2392,7 +2392,7 @@ BEGIN
         tipo_ingreso,
         lugar_origen,
         observacion
-    FROM ingresos_animales;
+    FROM Ingreso_Animal;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -2415,7 +2415,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_medicamento_actualizar`(
     IN _descripcion TEXT
 )
 BEGIN
-    UPDATE medicamentos
+    UPDATE Medicamentos
     SET nombre = _nombre,
         descripcion = _descripcion
     WHERE IdMedicamento = _id;
@@ -2440,7 +2440,7 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_medicamento_buscar`(IN _buscar VARCHAR(50))
 BEGIN
     SELECT IdMedicamento, nombre, descripcion 
-    FROM medicamentos 
+    FROM Medicamentos 
     WHERE nombre LIKE CONCAT('%', _buscar, '%');
 END ;;
 DELIMITER ;
@@ -2463,7 +2463,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_medicamento_crear`(
     IN _descripcion TEXT
 )
 BEGIN
-    INSERT INTO medicamentos (nombre, descripcion)
+    INSERT INTO Medicamentos (nombre, descripcion)
     VALUES (_nombre, _descripcion);
     
     SELECT LAST_INSERT_ID();
@@ -2485,7 +2485,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_medicamento_eliminar`(IN _id INT)
 BEGIN
-    DELETE FROM medicamentos 
+    DELETE FROM Medicamentos 
     WHERE IdMedicamento = _id;
     
     SELECT ROW_COUNT();
@@ -2508,7 +2508,7 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_medicamento_obtener_por_id`(IN _id INT)
 BEGIN
     SELECT IdMedicamento, nombre, descripcion 
-    FROM medicamentos 
+    FROM Medicamentos 
     WHERE IdMedicamento = _id;
 END ;;
 DELIMITER ;
@@ -2529,7 +2529,7 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_medicamento_obtener_todos`()
 BEGIN
     SELECT IdMedicamento, nombre, descripcion 
-    FROM medicamentos;
+    FROM Medicamentos;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -2585,7 +2585,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_persona_buscar`(IN _buscar VARCHAR (100))
 BEGIN
-SELECT * FROM Persona
+SELECT IdPersona, apellido, nombre, dni, telefono, email, direccion, fecha_alta, activo FROM Persona
 WHERE nombre LIKE CONCAT ('%', _buscar , '%')
 OR apellido LIKE CONCAT ('%', _buscar , '%');
 END ;;
@@ -2722,7 +2722,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_persona_obtener_por_dni`(IN _dni VARCHAR (20))
 BEGIN
-SELECT * FROM Persona
+SELECT IdPersona, apellido, nombre, dni, telefono, email, direccion, fecha_alta, activo FROM Persona
 WHERE dni = _dni;
 END ;;
 DELIMITER ;
@@ -2742,7 +2742,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_persona_obtener_por_id`(IN _id int)
 BEGIN
-SELECT * FROM Persona
+SELECT IdPersona, apellido, nombre, dni, telefono, email, direccion, fecha_alta, activo FROM Persona
 WHERE IdPersona = _id;
 END ;;
 DELIMITER ;
@@ -2762,7 +2762,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_persona_obtener_todos`()
 BEGIN
-SELECT * FROM Persona;
+SELECT IdPersona, apellido, nombre, dni, telefono, email, direccion, fecha_alta, activo FROM Persona;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -2790,7 +2790,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_plan_alimentacion_actualizar`(
     IN _fecha_hasta DATETIME
 )
 BEGIN
-    UPDATE planes_alimentacion
+    UPDATE Plan_Alimentacion
     SET 
         id_animal = _id_animal,
         tipo_alimento = _tipo_alimento,
@@ -2828,7 +2828,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_plan_alimentacion_crear`(
     IN _fecha_hasta DATETIME
 )
 BEGIN
-    INSERT INTO planes_alimentacion (
+    INSERT INTO Plan_Alimentacion (
         id_animal,
         tipo_alimento,
         cantidad,
@@ -2866,7 +2866,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_plan_alimentacion_eliminar`(IN _id INT)
 BEGIN
-    DELETE FROM planes_alimentacion 
+    DELETE FROM Plan_Alimentacion 
     WHERE IdPlan = _id;
 
     SELECT ROW_COUNT();
@@ -2897,7 +2897,7 @@ BEGIN
         observacion,
         fecha_desde,
         fecha_hasta
-    FROM planes_alimentacion
+    FROM Plan_Alimentacion
     WHERE IdPlan = _id;
 END ;;
 DELIMITER ;
@@ -2926,7 +2926,7 @@ BEGIN
         observacion,
         fecha_desde,
         fecha_hasta
-    FROM planes_alimentacion;
+    FROM Plan_Alimentacion;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -2950,7 +2950,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_predio_actualizar`(
     IN _descripcion VARCHAR(255)
 )
 BEGIN
-    UPDATE predios
+    UPDATE Predio
     SET 
         nombre = _nombre,
         direccion = _direccion,
@@ -2980,7 +2980,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_predio_crear`(
     IN _descripcion VARCHAR(255)
 )
 BEGIN
-    INSERT INTO predios (
+    INSERT INTO Predio (
         nombre,
         direccion,
         descripcion
@@ -3010,7 +3010,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_predio_eliminar`(IN _id INT)
 BEGIN
-    DELETE FROM predios 
+    DELETE FROM Predio 
     WHERE IdPredio = _id;
 
     SELECT ROW_COUNT();
@@ -3037,7 +3037,7 @@ BEGIN
         nombre,
         direccion,
         descripcion
-    FROM predios
+    FROM Predio
     WHERE IdPredio = _id;
 END ;;
 DELIMITER ;
@@ -3062,7 +3062,7 @@ BEGIN
         nombre,
         direccion,
         descripcion
-    FROM predios;
+    FROM Predio;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -3084,7 +3084,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_raza_crear`(
     IN _nombre VARCHAR(50)
 )
 BEGIN
-    INSERT INTO razas (id_especie, nombre)
+    INSERT INTO Razas (id_especie, nombre)
     VALUES (_id_especie, _nombre);
     
     SELECT LAST_INSERT_ID();
@@ -3107,7 +3107,7 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_raza_obtener_por_especie`(IN _id_especie INT)
 BEGIN
     SELECT IdRaza, id_especie, nombre 
-    FROM razas 
+    FROM Razas 
     WHERE id_especie = _id_especie;
 END ;;
 DELIMITER ;
@@ -3128,7 +3128,7 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_raza_obtener_todas`()
 BEGIN
     SELECT IdRaza, id_especie, nombre 
-    FROM razas;
+    FROM Razas;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -3151,7 +3151,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_rol_actualizar`(
     IN _descripcion VARCHAR(255)
 )
 BEGIN
-    UPDATE roles
+    UPDATE Roles
     SET 
         nombre = _nombre,
         descripcion = _descripcion
@@ -3179,7 +3179,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_rol_crear`(
     IN _descripcion VARCHAR(255)
 )
 BEGIN
-    INSERT INTO roles (
+    INSERT INTO Roles (
         nombre,
         descripcion
     )
@@ -3207,7 +3207,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_rol_eliminar`(IN _id INT)
 BEGIN
-    DELETE FROM roles 
+    DELETE FROM Roles 
     WHERE IdRol = _id;
 
     SELECT ROW_COUNT();
@@ -3233,7 +3233,7 @@ BEGIN
         IdRol,
         nombre,
         descripcion
-    FROM roles
+    FROM Roles
     WHERE IdRol = _id;
 END ;;
 DELIMITER ;
@@ -3257,7 +3257,7 @@ BEGIN
         IdRol,
         nombre,
         descripcion
-    FROM roles;
+    FROM Roles;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -3282,7 +3282,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_sector_actualizar`(
     IN _id_predio INT
 )
 BEGIN
-    UPDATE sectores
+    UPDATE Sector
     SET 
         nombre = _nombre,
         capacidad = _capacidad,
@@ -3314,7 +3314,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_sector_crear`(
     IN _id_predio INT
 )
 BEGIN
-    INSERT INTO sectores (
+    INSERT INTO Sector (
         nombre,
         capacidad,
         descripcion,
@@ -3346,7 +3346,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_sector_eliminar`(IN _id INT)
 BEGIN
-    DELETE FROM sectores 
+    DELETE FROM Sector 
     WHERE IdSector = _id;
 
     SELECT ROW_COUNT();
@@ -3374,7 +3374,7 @@ BEGIN
         capacidad,
         descripcion,
         id_predio
-    FROM sectores
+    FROM Sector
     WHERE IdSector = _id;
 END ;;
 DELIMITER ;
@@ -3400,7 +3400,7 @@ BEGIN
         capacidad,
         descripcion,
         id_predio
-    FROM sectores;
+    FROM Sector;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -3426,7 +3426,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_seguimiento_adopcion_actualizar`
     IN _observacion TEXT
 )
 BEGIN
-    UPDATE seguimientos_adopciones
+    UPDATE Seguimiento_Adopcion
     SET 
         id_adopcion = _id_adopcion,
         fecha = _fecha,
@@ -3460,7 +3460,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_seguimiento_adopcion_crear`(
     IN _observacion TEXT
 )
 BEGIN
-    INSERT INTO seguimientos_adopciones (
+    INSERT INTO Seguimiento_Adopcion (
         id_adopcion,
         fecha,
         tipo,
@@ -3494,7 +3494,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_seguimiento_adopcion_eliminar`(IN _id INT)
 BEGIN
-    DELETE FROM seguimientos_adopciones 
+    DELETE FROM Seguimiento_Adopcion 
     WHERE IdSeguimientoAdopcion = _id;
 
     SELECT ROW_COUNT();
@@ -3523,7 +3523,7 @@ BEGIN
         tipo,
         resultado,
         observacion
-    FROM seguimientos_adopciones
+    FROM Seguimiento_Adopcion
     WHERE IdSeguimientoAdopcion = _id;
 END ;;
 DELIMITER ;
@@ -3550,7 +3550,7 @@ BEGIN
         tipo,
         resultado,
         observacion
-    FROM seguimientos_adopciones;
+    FROM Seguimiento_Adopcion;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -3572,7 +3572,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_sexo_actualizar`(
     IN _nombre VARCHAR(20)
 )
 BEGIN
-    UPDATE sexos
+    UPDATE Sexo
     SET nombre = _nombre
     WHERE IdSexo = _id;
 
@@ -3597,7 +3597,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_sexo_crear`(
     IN _nombre VARCHAR(20)
 )
 BEGIN
-    INSERT INTO sexos (nombre)
+    INSERT INTO Sexo (nombre)
     VALUES (_nombre);
 
     SELECT LAST_INSERT_ID();
@@ -3619,7 +3619,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_sexo_eliminar`(IN _id INT)
 BEGIN
-    DELETE FROM sexos 
+    DELETE FROM Sexo 
     WHERE IdSexo = _id;
 
     SELECT ROW_COUNT();
@@ -3644,7 +3644,7 @@ BEGIN
     SELECT 
         IdSexo,
         nombre
-    FROM sexos
+    FROM Sexo
     WHERE IdSexo = _id;
 END ;;
 DELIMITER ;
@@ -3667,7 +3667,7 @@ BEGIN
     SELECT 
         IdSexo,
         nombre
-    FROM sexos;
+    FROM Sexo;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -3693,7 +3693,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_solicitud_adopcion_actualizar`(
     IN _observacion TEXT
 )
 BEGIN
-    UPDATE solicitudes_adopciones
+    UPDATE Solicitud_Adopcion
     SET 
         id_persona = _id_persona,
         id_animal = _id_animal,
@@ -3727,7 +3727,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_solicitud_adopcion_crear`(
     IN _observacion TEXT
 )
 BEGIN
-    INSERT INTO solicitudes_adopciones (
+    INSERT INTO Solicitud_Adopcion (
         id_persona,
         id_animal,
         fecha,
@@ -3761,7 +3761,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_solicitud_adopcion_eliminar`(IN _id INT)
 BEGIN
-    DELETE FROM solicitudes_adopciones 
+    DELETE FROM Solicitud_Adopcion 
     WHERE IdSolicitudAdopcion = _id;
 
     SELECT ROW_COUNT();
@@ -3790,7 +3790,7 @@ BEGIN
         fecha,
         estado,
         observacion
-    FROM solicitudes_adopciones
+    FROM Solicitud_Adopcion
     WHERE IdSolicitudAdopcion = _id;
 END ;;
 DELIMITER ;
@@ -3817,7 +3817,7 @@ BEGIN
         fecha,
         estado,
         observacion
-    FROM solicitudes_adopciones;
+    FROM Solicitud_Adopcion;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -3844,7 +3844,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_tratamiento_actualizar`(
     IN _observacion TEXT
 )
 BEGIN
-    UPDATE tratamientos
+    UPDATE Tratamientos
     SET 
         id_atencion_veterinaria = _id_atencion_veterinaria,
         descripcion = _descripcion,
@@ -3880,7 +3880,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_tratamiento_crear`(
     IN _observacion TEXT
 )
 BEGIN
-    INSERT INTO tratamientos (
+    INSERT INTO Tratamientos (
         id_atencion_veterinaria,
         descripcion,
         fecha_inicio,
@@ -3916,7 +3916,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_tratamiento_eliminar`(IN _id INT)
 BEGIN
-    DELETE FROM tratamientos 
+    DELETE FROM Tratamientos 
     WHERE IdTratamiento = _id;
 
     SELECT ROW_COUNT();
@@ -3946,7 +3946,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_tratamiento_medicamento_actualiz
     IN _observacion TEXT
 )
 BEGIN
-    UPDATE tratamientos_medicamentos
+    UPDATE Tratamiento_Medicamento
     SET 
         id_medicamento = _id_medicamento,
         id_tratamiento = _id_tratamiento,
@@ -3982,7 +3982,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_tratamiento_medicamento_crear`(
     IN _observacion TEXT
 )
 BEGIN
-    INSERT INTO tratamientos_medicamentos (
+    INSERT INTO Tratamiento_Medicamento (
         id_medicamento,
         id_tratamiento,
         dosis,
@@ -4018,7 +4018,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_tratamiento_medicamento_eliminar`(IN _id INT)
 BEGIN
-    DELETE FROM tratamientos_medicamentos 
+    DELETE FROM Tratamiento_Medicamento 
     WHERE IdTratamientoMedico = _id;
 
     SELECT ROW_COUNT();
@@ -4048,7 +4048,7 @@ BEGIN
         frecuencia,
         duracion,
         observacion
-    FROM tratamientos_medicamentos
+    FROM Tratamiento_Medicamento
     WHERE IdTratamientoMedico = _id;
 END ;;
 DELIMITER ;
@@ -4076,7 +4076,7 @@ BEGIN
         frecuencia,
         duracion,
         observacion
-    FROM tratamientos_medicamentos;
+    FROM Tratamiento_Medicamento;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -4103,7 +4103,7 @@ BEGIN
         fecha_fin,
         estado,
         observacion
-    FROM tratamientos
+    FROM Tratamientos
     WHERE IdTratamiento = _id;
 END ;;
 DELIMITER ;
@@ -4131,7 +4131,7 @@ BEGIN
         fecha_fin,
         estado,
         observacion
-    FROM tratamientos;
+    FROM Tratamientos;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -4156,9 +4156,9 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_usuario_actualizar`(
     IN _ultimo_acceso DATETIME
 )
 BEGIN
-    UPDATE usuarios
+    UPDATE Usuarios
     SET 
-        user = _user,
+        usuario = _user,
         password_hash = _password_hash,
         activo = _activo,
         ultimo_acceso = _ultimo_acceso
@@ -4189,8 +4189,8 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_usuario_crear`(
     IN _ultimo_acceso DATETIME
 )
 BEGIN
-    INSERT INTO usuarios (
-        user,
+    INSERT INTO Usuarios (
+        usuario,
         password_hash,
         activo,
         fecha_creacion,
@@ -4223,7 +4223,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_usuario_eliminar`(IN _id INT)
 BEGIN
-    DELETE FROM usuarios 
+    DELETE FROM Usuarios 
     WHERE IdUsuario = _id;
 
     SELECT ROW_COUNT();
@@ -4247,12 +4247,12 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_usuario_obtener_por_id`(IN _id I
 BEGIN
     SELECT 
         IdUsuario,
-        user,
+        usuario AS User,
         password_hash,
         activo,
         fecha_creacion,
         ultimo_acceso
-    FROM usuarios
+    FROM Usuarios
     WHERE IdUsuario = _id;
 END ;;
 DELIMITER ;
@@ -4274,12 +4274,12 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_usuario_obtener_todos`()
 BEGIN
     SELECT 
         IdUsuario,
-        user,
+        usuario AS User,
         password_hash,
         activo,
         fecha_creacion,
         ultimo_acceso
-    FROM usuarios;
+    FROM Usuarios;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -4301,7 +4301,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_usuario_rol_crear`(
     IN _id_rol INT
 )
 BEGIN
-    INSERT INTO usuarios_roles (id_usuario, id_rol)
+    INSERT INTO Usuario_Rol (IdUsuario, IdRol)
     VALUES (_id_usuario, _id_rol);
 
     SELECT ROW_COUNT();
@@ -4326,8 +4326,8 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_usuario_rol_eliminar`(
     IN _id_rol INT
 )
 BEGIN
-    DELETE FROM usuarios_roles 
-    WHERE id_usuario = _id_usuario AND id_rol = _id_rol;
+    DELETE FROM Usuario_Rol 
+    WHERE IdUsuario = _id_usuario AND IdRol = _id_rol;
 
     SELECT ROW_COUNT();
 END ;;
@@ -4352,10 +4352,10 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_usuario_rol_obtener_por_clave`(
 )
 BEGIN
     SELECT 
-        id_usuario AS IdUsuario,
-        id_rol AS IdRol
-    FROM usuarios_roles
-    WHERE id_usuario = _id_usuario AND id_rol = _id_rol;
+        IdUsuario,
+        IdRol
+    FROM Usuario_Rol
+    WHERE IdUsuario = _id_usuario AND IdRol = _id_rol;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -4377,10 +4377,10 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_usuario_rol_obtener_por_usuario`
 )
 BEGIN
     SELECT 
-        id_usuario AS IdUsuario,
-        id_rol AS IdRol
-    FROM usuarios_roles
-    WHERE id_usuario = _id_usuario;
+        IdUsuario,
+        IdRol
+    FROM Usuario_Rol
+    WHERE IdUsuario = _id_usuario;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -4400,9 +4400,9 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_usuario_rol_obtener_todos`()
 BEGIN
     SELECT 
-        id_usuario AS IdUsuario,
-        id_rol AS IdRol
-    FROM usuarios_roles;
+        IdUsuario,
+        IdRol
+    FROM Usuario_Rol;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -4428,7 +4428,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_vacunacion_actualizar`(
     IN _observacion TEXT
 )
 BEGIN
-    UPDATE vacunaciones
+    UPDATE Vacunacion
     SET 
         id_animal = _id_animal,
         id_vacuna = _id_vacuna,
@@ -4462,7 +4462,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_vacunacion_crear`(
     IN _observacion TEXT
 )
 BEGIN
-    INSERT INTO vacunaciones (
+    INSERT INTO Vacunacion (
         id_animal,
         id_vacuna,
         fecha,
@@ -4496,7 +4496,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_vacunacion_eliminar`(IN _id INT)
 BEGIN
-    DELETE FROM vacunaciones 
+    DELETE FROM Vacunacion 
     WHERE IdVacunacion = _id;
 
     SELECT ROW_COUNT();
@@ -4525,7 +4525,7 @@ BEGIN
         fecha,
         proxima_fecha,
         observacion
-    FROM vacunaciones
+    FROM Vacunacion
     WHERE IdVacunacion = _id;
 END ;;
 DELIMITER ;
@@ -4552,7 +4552,7 @@ BEGIN
         fecha,
         proxima_fecha,
         observacion
-    FROM vacunaciones;
+    FROM Vacunacion;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -4575,7 +4575,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_vacuna_actualizar`(
     IN _descripcion TEXT
 )
 BEGIN
-    UPDATE vacunas
+    UPDATE Vacunas
     SET nombre = _nombre,
         descripcion = _descripcion
     WHERE IdVacuna = _id;
@@ -4600,7 +4600,7 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_vacuna_buscar`(IN _buscar VARCHAR(50))
 BEGIN
     SELECT IdVacuna, nombre, descripcion 
-    FROM vacunas 
+    FROM Vacunas 
     WHERE nombre LIKE CONCAT('%', _buscar, '%');
 END ;;
 DELIMITER ;
@@ -4623,7 +4623,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_vacuna_crear`(
     IN _descripcion TEXT
 )
 BEGIN
-    INSERT INTO vacunas (nombre, descripcion)
+    INSERT INTO Vacunas (nombre, descripcion)
     VALUES (_nombre, _descripcion);
     
     SELECT LAST_INSERT_ID();
@@ -4645,7 +4645,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_vacuna_eliminar`(IN _id INT)
 BEGIN
-    DELETE FROM vacunas 
+    DELETE FROM Vacunas 
     WHERE IdVacuna = _id;
     
     SELECT ROW_COUNT();
@@ -4668,7 +4668,7 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_vacuna_obtener_por_id`(IN _id INT)
 BEGIN
     SELECT IdVacuna, nombre, descripcion 
-    FROM vacunas 
+    FROM Vacunas 
     WHERE IdVacuna = _id;
 END ;;
 DELIMITER ;
@@ -4689,7 +4689,7 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_vacuna_obtener_todos`()
 BEGIN
     SELECT IdVacuna, nombre, descripcion 
-    FROM vacunas;
+    FROM Vacunas;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -4714,7 +4714,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_veterinario_actualizar`(
     IN _telefono VARCHAR(20)
 )
 BEGIN
-    UPDATE veterinarios
+    UPDATE Veterinarios
     SET 
         matricula = _matricula,
         nombre = _nombre,
@@ -4746,7 +4746,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_veterinario_crear`(
     IN _telefono VARCHAR(20)
 )
 BEGIN
-    INSERT INTO veterinarios (
+    INSERT INTO Veterinarios (
         matricula,
         nombre,
         apellido,
@@ -4778,7 +4778,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_veterinario_eliminar`(IN _id INT)
 BEGIN
-    DELETE FROM veterinarios 
+    DELETE FROM Veterinarios 
     WHERE IdVeterinario = _id;
 
     SELECT ROW_COUNT();
@@ -4806,7 +4806,7 @@ BEGIN
         nombre,
         apellido,
         telefono
-    FROM veterinarios
+    FROM Veterinarios
     WHERE IdVeterinario = _id;
 END ;;
 DELIMITER ;
@@ -4832,7 +4832,7 @@ BEGIN
         nombre,
         apellido,
         telefono
-    FROM veterinarios;
+    FROM Veterinarios;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -4855,7 +4855,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_usuario_obtener_por_usuario`(IN 
 BEGIN
 SELECT
     IdUsuario,
-    usuario,
+    usuario AS User,
     password_hash,
     activo,
     fecha_creacion,
@@ -4894,6 +4894,44 @@ DELIMITER ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 
+
+/*!50003 DROP PROCEDURE IF EXISTS sp_vacunas_obtener_por_id */;
+DELIMITER ;;
+CREATE DEFINER=oot@localhost PROCEDURE sp_vacunas_obtener_por_id(IN _id INT)
+BEGIN
+    SELECT IdVacuna, nombre, descripcion 
+    FROM Vacunas 
+    WHERE IdVacuna = _id;
+END ;;
+DELIMITER ;
+
+/*!50003 DROP PROCEDURE IF EXISTS sp_vacunas_obtener_todos */;
+DELIMITER ;;
+CREATE DEFINER=oot@localhost PROCEDURE sp_vacunas_obtener_todos()
+BEGIN
+    SELECT IdVacuna, nombre, descripcion 
+    FROM Vacunas;
+END ;;
+DELIMITER ;
+
+/*!50003 DROP PROCEDURE IF EXISTS sp_medicamentos_obtener_por_id */;
+DELIMITER ;;
+CREATE DEFINER=oot@localhost PROCEDURE sp_medicamentos_obtener_por_id(IN _id INT)
+BEGIN
+    SELECT IdMedicamento, nombre, descripcion 
+    FROM Medicamentos 
+    WHERE IdMedicamento = _id;
+END ;;
+DELIMITER ;
+
+/*!50003 DROP PROCEDURE IF EXISTS sp_medicamentos_obtener_todos */;
+DELIMITER ;;
+CREATE DEFINER=oot@localhost PROCEDURE sp_medicamentos_obtener_todos()
+BEGIN
+    SELECT IdMedicamento, nombre, descripcion 
+    FROM Medicamentos;
+END ;;
+DELIMITER ;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;

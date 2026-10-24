@@ -10,6 +10,17 @@ public static class ServicioPassword
     public static bool VerificarPassword(string password, string? hash_)
     {
         if (string.IsNullOrEmpty(hash_)) return false;
-        return BCrypt.Net.BCrypt.Verify(password, hash_);
+        if (hash_.StartsWith("$2"))
+        {
+            try
+            {
+                return BCrypt.Net.BCrypt.Verify(password, hash_);
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        return password == hash_;
     }
 }

@@ -36,6 +36,11 @@ public class ServicioUsuario
         if (string.IsNullOrWhiteSpace(usuario.PasswordHash))
             throw new ArgumentException("La contraseña hash es obligatoria.");
 
+        if (!usuario.PasswordHash.StartsWith("$2"))
+        {
+            usuario.PasswordHash = ServicioPassword.HashPassword(usuario.PasswordHash);
+        }
+
         return await _repositorio.CrearAsync(usuario);
     }
 
@@ -56,6 +61,11 @@ public class ServicioUsuario
         var existente = await _repositorio.ObtenerPorIdAsync(usuario.IdUsuario);
         if (existente == null)
             throw new KeyNotFoundException($"No se encontró el usuario con ID {usuario.IdUsuario}.");
+
+        if (!usuario.PasswordHash.StartsWith("$2"))
+        {
+            usuario.PasswordHash = ServicioPassword.HashPassword(usuario.PasswordHash);
+        }
 
         return await _repositorio.ActualizarAsync(usuario);
     }
