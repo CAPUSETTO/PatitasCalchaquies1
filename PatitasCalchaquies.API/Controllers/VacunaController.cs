@@ -75,7 +75,7 @@ public class VacunaController : ControllerBase
 
                 VacunaDto vacunaDto = _mapper.Map<VacunaDto>(vacuna);
                 
-                return CreatedAtAction(nameof(GetById), new { id = vacuna.IdVacuna }, vacunaDto);
+                return CreatedAtAction(nameof(GetById), new { idVacuna = vacuna.IdVacuna }, vacunaDto);
             }
             catch (ArgumentException ex)
             {

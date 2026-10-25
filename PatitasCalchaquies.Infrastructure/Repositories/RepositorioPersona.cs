@@ -143,11 +143,11 @@ public class RepositorioPersona : IRepositoryPersona
             _comando.CommandType = CommandType.StoredProcedure;
             _comando.CommandText = "sp_persona_crear";
 
-            Action<string, object> AddParam = (name, Value) =>
+            Action<string, object?> AddParam = (name, Value) =>
             {
                 var p = _comando.CreateParameter();
                 p.ParameterName = name;
-                p.Value = Value;
+                p.Value = Value ?? DBNull.Value;
                 _comando.Parameters.Add(p);
             };
             
@@ -158,7 +158,7 @@ public class RepositorioPersona : IRepositoryPersona
             AddParam("@_email", persona.Email);
             AddParam("@_direccion", persona.Direccion);
             
-            object result = _comando.ExecuteScalar();
+            object? result = _comando.ExecuteScalar();
             return result != null ? Convert.ToInt32(result) : 0;
             
         }
@@ -178,11 +178,11 @@ public class RepositorioPersona : IRepositoryPersona
             _comando.CommandType = CommandType.StoredProcedure;
             _comando.CommandText = "sp_persona_actualizar";
 
-            Action<string, object> AddParam = (name, Value) =>
+            Action<string, object?> AddParam = (name, Value) =>
             {
                 var p = _comando.CreateParameter();
                 p.ParameterName = name;
-                p.Value = Value;
+                p.Value = Value ?? DBNull.Value;
                 _comando.Parameters.Add(p);
             };
 
@@ -196,7 +196,7 @@ public class RepositorioPersona : IRepositoryPersona
             AddParam("@_activo", persona.Activo);
 
             int filasAfectadas = _comando.ExecuteNonQuery();
-            return filasAfectadas > 0;
+            return filasAfectadas >= 0;
         }
         catch (Exception error)
         {
@@ -243,7 +243,7 @@ public class RepositorioPersona : IRepositoryPersona
             parametro.Value = dni ?? (object)DBNull.Value;
             _comando.Parameters.Add(parametro);
             
-            object result = _comando.ExecuteScalar();
+            object? result = _comando.ExecuteScalar();
             if (result != null && result != DBNull.Value)
             {
                 return Convert.ToInt32(result) == 1;
@@ -271,7 +271,7 @@ public class RepositorioPersona : IRepositoryPersona
             parametro.Value = email ?? (object)DBNull.Value;
             _comando.Parameters.Add(parametro);
             
-            object result = _comando.ExecuteScalar();
+            object? result = _comando.ExecuteScalar();
             if (result != null && result != DBNull.Value)
             {
                 return Convert.ToInt32(result) == 1;

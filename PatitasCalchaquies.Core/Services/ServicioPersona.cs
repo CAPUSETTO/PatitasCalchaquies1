@@ -61,12 +61,19 @@ public class ServicioPersona
             throw new ArgumentException("El DNI ya existe registrado en otra persona.");
         }
 
-        if (string.IsNullOrWhiteSpace(persona.Email) && await _repositorio.ExisteEmailAsync(persona.Email))
+        persona.Email = string.IsNullOrWhiteSpace(persona.Email) ? null : persona.Email.Trim();
+
+        if (!string.IsNullOrWhiteSpace(persona.Email) && await _repositorio.ExisteEmailAsync(persona.Email))
         {
             throw new InvalidOperationException("Ya existe una persona registrada con ese email.");
         }
         
-        return await _repositorio.CrearPersonaAsync(persona);
+        int id = await _repositorio.CrearPersonaAsync(persona);
+        if (id <= 0)
+        {
+            throw new InvalidOperationException("No se pudo guardar la persona en la base de datos.");
+        }
+        return id;
     }
 
     public async Task<bool> ActualizarPersonaAsync(Persona persona)
@@ -81,6 +88,8 @@ public class ServicioPersona
         {
             return false;
         }
+
+        persona.Email = string.IsNullOrWhiteSpace(persona.Email) ? null : persona.Email.Trim();
         return await _repositorio.ActualizarPersonaAsync(persona);
     }
 

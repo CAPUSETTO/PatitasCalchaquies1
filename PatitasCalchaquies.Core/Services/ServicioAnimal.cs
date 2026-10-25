@@ -19,11 +19,11 @@ public class ServicioAnimal
 
     public async Task<Animal> ObtenerPorIdAsync(int id)
     {
-        if (id > 0)
+        if (id <= 0)
         {
             throw new ArgumentException("El id no existe en el registro");
         }
-        return  await _repositorio.ObtenerPorIdAsync(id);
+        return await _repositorio.ObtenerPorIdAsync(id);
     }
 
     public async Task<int> CrearAsync(Animal animal)
@@ -40,7 +40,11 @@ public class ServicioAnimal
         if (animal.IdEspecie <= 0)
             throw new ArgumentException("Debe asignarse una especie válida.");
 
-        return await _repositorio.CrearAsync(animal);
+        int id = await _repositorio.CrearAsync(animal);
+        if (id <= 0)
+            throw new InvalidOperationException("No se pudo registrar el animal. Verifique el código de identificación y los catálogos asociados.");
+
+        return id;
     }
 
     public async Task<bool> ActualizarAsync(Animal animal)
@@ -50,15 +54,15 @@ public class ServicioAnimal
             throw new ArgumentNullException(nameof(animal));
         }
 
-        if (animal.IdEspecie <= 0)
+        if (animal.IdAnimal <= 0)
         {
-            throw new  ArgumentException("El id del animal es obligatorio.");
+            throw new ArgumentException("El id del animal es obligatorio.");
         }
         
-        var existente = await _repositorio.ObtenerPorIdAsync(animal.IdEspecie);
+        var existente = await _repositorio.ObtenerPorIdAsync(animal.IdAnimal);
         if (existente == null)
         {
-            throw new KeyNotFoundException($"No se encontro el animal con ID {animal.IdEspecie}");
+            throw new KeyNotFoundException($"No se encontro el animal con ID {animal.IdAnimal}");
         }
         
         return await _repositorio.ActualizarAsync(animal);

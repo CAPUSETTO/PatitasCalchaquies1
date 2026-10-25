@@ -93,6 +93,15 @@ public class RepositorioRaza : IRepositoryRaza
         try
         {
             using IDbConnection _conexion = await _conn.obtenerConexionAsync();
+
+            // Garantizar que las especies base existan para no fallar por FK razas_ibfk_1
+            using (IDbCommand seedCmd = _conexion.CreateCommand())
+            {
+                seedCmd.CommandType = CommandType.Text;
+                seedCmd.CommandText = "INSERT IGNORE INTO `Especies` (`IdEspecie`, `nombre`) VALUES (1, 'Canino'), (2, 'Felino');";
+                seedCmd.ExecuteNonQuery();
+            }
+
             using IDbCommand _comando = _conexion.CreateCommand();
             _comando.CommandType = CommandType.StoredProcedure;
             _comando.CommandText = "sp_raza_crear";

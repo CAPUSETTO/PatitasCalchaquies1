@@ -28,7 +28,7 @@ public class ServicioMedicamento
 
     public async Task<IEnumerable<Medicamento>> BuscarAsync(string texto)
     {
-        if (string.IsNullOrWhiteSpace(texto)){}
+        if (string.IsNullOrWhiteSpace(texto))
         {
             return await _repositoryMedicamento.ObtenerTodosAsync();
         }
@@ -42,14 +42,19 @@ public class ServicioMedicamento
             throw new ArgumentException("El nombre del medicamento es obligatorio");
         }
         
-        return await _repositoryMedicamento.CrearAsync(medicamento);
+        int id = await _repositoryMedicamento.CrearAsync(medicamento);
+        if (id <= 0)
+        {
+            throw new InvalidOperationException("No se pudo guardar el medicamento en la base de datos.");
+        }
+        return id;
     }
 
     public async Task<bool> ActualizarAsync(Medicamento medicamento)
     {
         if (medicamento.IdMedicamento <= 0)
         {
-            throw new ArgumentException("El id del medicamento debe ser menor a 0");
+            throw new ArgumentException("El id del medicamento debe ser mayor a 0");
         }
 
         var existente = await _repositoryMedicamento.ObtenerPorIdAsync(medicamento.IdMedicamento);
@@ -65,7 +70,7 @@ public class ServicioMedicamento
     {
         if (id <= 0)
         {
-            throw new ArgumentException("El id del medicamento debe ser menor a 0");
+            throw new ArgumentException("El id del medicamento debe ser mayor a 0");
         }
         
         return await _repositoryMedicamento.EliminarAsync(id);

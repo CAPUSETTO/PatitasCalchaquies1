@@ -23,7 +23,7 @@ public class RepositorioMedicamento : IRepositoryMedicamento
             using IDbConnection _conexion = await _conn.obtenerConexionAsync();
             using IDbCommand _comando = _conexion.CreateCommand();
             _comando.CommandType = CommandType.StoredProcedure;
-            _comando.CommandText = "sp_medicamentos_obtener_todos";
+            _comando.CommandText = "sp_medicamento_obtener_todos";
             
             using IDataReader reader = _comando.ExecuteReader();
             List<Medicamento> listaMedicamentos = new List<Medicamento>();
@@ -34,7 +34,7 @@ public class RepositorioMedicamento : IRepositoryMedicamento
                 {
                     IdMedicamento = reader.GetInt32(0),
                     Nombre = reader.GetString(1),
-                    Descripcion = reader.GetString(2)
+                    Descripcion = reader.IsDBNull(2) ? null : reader.GetString(2)
                 };
                 listaMedicamentos.Add(medicamento);
             }
@@ -55,7 +55,7 @@ public class RepositorioMedicamento : IRepositoryMedicamento
             using IDbConnection _conexion = await _conn.obtenerConexionAsync();
             using IDbCommand _comando = _conexion.CreateCommand();
             _comando.CommandType = CommandType.StoredProcedure;
-            _comando.CommandText = "sp_medicamentos_obtener_por_id";
+            _comando.CommandText = "sp_medicamento_obtener_por_id";
             
             IDbDataParameter parametro = _comando.CreateParameter();
             parametro.ParameterName = "@_id";
@@ -70,7 +70,7 @@ public class RepositorioMedicamento : IRepositoryMedicamento
                 {
                     IdMedicamento = reader.GetInt32(0),
                     Nombre = reader.GetString(1),
-                    Descripcion = reader.GetString(2)
+                    Descripcion = reader.IsDBNull(2) ? null : reader.GetString(2)
                 };
             }
             return null;
@@ -105,7 +105,7 @@ public class RepositorioMedicamento : IRepositoryMedicamento
                 {
                     IdMedicamento = reader.GetInt32(0),
                     Nombre = reader.GetString(1),
-                    Descripcion = reader.GetString(2)
+                    Descripcion = reader.IsDBNull(2) ? null : reader.GetString(2)
                 });
             }
 
@@ -127,7 +127,7 @@ public class RepositorioMedicamento : IRepositoryMedicamento
             _comando.CommandType = CommandType.StoredProcedure;
             _comando.CommandText = "sp_medicamento_crear";
 
-            Action<string, object> AddParam = (name, Value) =>
+            Action<string, object?> AddParam = (name, Value) =>
             {
                 var p = _comando.CreateParameter();
                 p.ParameterName = name;
@@ -169,7 +169,7 @@ public class RepositorioMedicamento : IRepositoryMedicamento
             AddParam("@_descripcion", medicamento.Descripcion);
 
             int filasAfectadas = Convert.ToInt32(_comando.ExecuteScalar());
-            return filasAfectadas > 0;
+            return filasAfectadas >= 0;
         }
         catch (MySqlException error)
         {

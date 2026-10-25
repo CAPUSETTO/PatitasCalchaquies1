@@ -832,7 +832,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_adopcion_actualizar`(
+CREATE PROCEDURE `sp_adopcion_actualizar`(
     IN _id INT,
     IN _id_solicitud_adopcion INT,
     IN _fecha DATETIME,
@@ -863,7 +863,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_adopcion_crear`(
+CREATE PROCEDURE `sp_adopcion_crear`(
     IN _id_solicitud_adopcion INT,
     IN _fecha DATETIME,
     IN _observacion TEXT
@@ -897,7 +897,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_adopcion_eliminar`(IN _id INT)
+CREATE PROCEDURE `sp_adopcion_eliminar`(IN _id INT)
 BEGIN
     DELETE FROM Adopcion 
     WHERE IdAdopcion = _id;
@@ -919,7 +919,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_adopcion_obtener_por_id`(IN _id INT)
+CREATE PROCEDURE `sp_adopcion_obtener_por_id`(IN _id INT)
 BEGIN
     SELECT 
         IdAdopcion,
@@ -944,7 +944,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_adopcion_obtener_todas`()
+CREATE PROCEDURE `sp_adopcion_obtener_todas`()
 BEGIN
     SELECT 
         IdAdopcion,
@@ -968,7 +968,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_alimentacion_actualizar`(
+CREATE PROCEDURE `sp_alimentacion_actualizar`(
     IN _id INT,
     IN _id_animal INT,
     IN _fecha_hora DATETIME,
@@ -1003,7 +1003,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_alimentacion_crear`(
+CREATE PROCEDURE `sp_alimentacion_crear`(
     IN _id_animal INT,
     IN _fecha_hora DATETIME,
     IN _tipo_alimento VARCHAR(100),
@@ -1043,7 +1043,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_alimentacion_eliminar`(IN _id INT)
+CREATE PROCEDURE `sp_alimentacion_eliminar`(IN _id INT)
 BEGIN
     DELETE FROM Alimentacion 
     WHERE IdAlimentacion = _id;
@@ -1065,7 +1065,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_alimentacion_obtener_por_id`(IN _id INT)
+CREATE PROCEDURE `sp_alimentacion_obtener_por_id`(IN _id INT)
 BEGIN
     SELECT 
         IdAlimentacion,
@@ -1092,7 +1092,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_alimentacion_obtener_todas`()
+CREATE PROCEDURE `sp_alimentacion_obtener_todas`()
 BEGIN
     SELECT 
         IdAlimentacion,
@@ -1118,7 +1118,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_alojamiento_animal_actualizar`(
+CREATE PROCEDURE `sp_alojamiento_animal_actualizar`(
     IN _id INT,
     IN _id_animal INT,
     IN _id_sector INT,
@@ -1153,7 +1153,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_alojamiento_animal_crear`(
+CREATE PROCEDURE `sp_alojamiento_animal_crear`(
     IN _id_animal INT,
     IN _id_sector INT,
     IN _fecha_ingreso DATETIME,
@@ -1193,7 +1193,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_alojamiento_animal_eliminar`(IN _id INT)
+CREATE PROCEDURE `sp_alojamiento_animal_eliminar`(IN _id INT)
 BEGIN
     DELETE FROM Alojamiento_Animal 
     WHERE IdAlojamiento = _id;
@@ -1215,7 +1215,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_alojamiento_animal_obtener_por_id`(IN _id INT)
+CREATE PROCEDURE `sp_alojamiento_animal_obtener_por_id`(IN _id INT)
 BEGIN
     SELECT 
         IdAlojamiento,
@@ -1242,7 +1242,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_alojamiento_animal_obtener_todos`()
+CREATE PROCEDURE `sp_alojamiento_animal_obtener_todos`()
 BEGIN
     SELECT 
         IdAlojamiento,
@@ -1268,7 +1268,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_animal_actualizar`(
+CREATE PROCEDURE `sp_animal_actualizar`(
     IN _id INT,
     IN _nombre VARCHAR(100),
     IN _codigo_identificacion VARCHAR(50),
@@ -1309,7 +1309,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_animal_crear`(
+CREATE PROCEDURE `sp_animal_crear`(
     IN _nombre VARCHAR(100),
     IN _codigo_identificacion VARCHAR(50),
     IN _fecha_ingreso DATETIME,
@@ -1358,7 +1358,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_animal_eliminar`(IN _id INT)
+CREATE PROCEDURE `sp_animal_eliminar`(IN _id INT)
 BEGIN
     DELETE FROM Animales 
     WHERE IdAnimal = _id;
@@ -1380,7 +1380,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_animal_obtener_por_id`(IN _id INT)
+CREATE PROCEDURE `sp_animal_obtener_por_id`(IN _id INT)
 BEGIN
     SELECT 
         IdAnimal,
@@ -1410,7 +1410,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_animal_obtener_todos`()
+CREATE PROCEDURE `sp_animal_obtener_todos`()
 BEGIN
     SELECT 
         IdAnimal,
@@ -1439,7 +1439,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_atencion_veterinaria_actualizar`(
+CREATE PROCEDURE `sp_atencion_veterinaria_actualizar`(
     IN _id INT,
     IN _id_animal INT,
     IN _id_veterinario INT,
@@ -1472,7 +1472,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_atencion_veterinaria_crear`(
+CREATE PROCEDURE `sp_atencion_veterinaria_crear`(
     IN _id_animal INT,
     IN _id_veterinario INT,
     IN _fecha DATETIME,
@@ -1509,7 +1509,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_atencion_veterinaria_eliminar`(IN _id INT)
+CREATE PROCEDURE `sp_atencion_veterinaria_eliminar`(IN _id INT)
 BEGIN
     DELETE FROM Atencion_Veterinario 
     WHERE IdAtencionVeterinaria = _id;
@@ -1531,7 +1531,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_atencion_veterinaria_obtener_por_id`(IN _id INT)
+CREATE PROCEDURE `sp_atencion_veterinaria_obtener_por_id`(IN _id INT)
 BEGIN
     SELECT 
         IdAtencionVeterinaria,
@@ -1557,7 +1557,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_atencion_veterinaria_obtener_todas`()
+CREATE PROCEDURE `sp_atencion_veterinaria_obtener_todas`()
 BEGIN
     SELECT 
         IdAtencionVeterinaria,
@@ -1582,7 +1582,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_devolucion_adopcion_actualizar`(
+CREATE PROCEDURE `sp_devolucion_adopcion_actualizar`(
     IN _id INT,
     IN _id_adopcion INT,
     IN _fecha DATETIME,
@@ -1615,7 +1615,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_devolucion_adopcion_crear`(
+CREATE PROCEDURE `sp_devolucion_adopcion_crear`(
     IN _id_adopcion INT,
     IN _fecha DATETIME,
     IN _motivo VARCHAR(255),
@@ -1652,7 +1652,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_devolucion_adopcion_eliminar`(IN _id INT)
+CREATE PROCEDURE `sp_devolucion_adopcion_eliminar`(IN _id INT)
 BEGIN
     DELETE FROM Devolucion_Adopcion 
     WHERE IdDevolucionAdopcion = _id;
@@ -1674,7 +1674,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_devolucion_adopcion_obtener_por_id`(IN _id INT)
+CREATE PROCEDURE `sp_devolucion_adopcion_obtener_por_id`(IN _id INT)
 BEGIN
     SELECT 
         IdDevolucionAdopcion,
@@ -1700,7 +1700,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_devolucion_adopcion_obtener_todas`()
+CREATE PROCEDURE `sp_devolucion_adopcion_obtener_todas`()
 BEGIN
     SELECT 
         IdDevolucionAdopcion,
@@ -1725,7 +1725,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_especie_actualizar`(
+CREATE PROCEDURE `sp_especie_actualizar`(
     IN _id INT,
     IN _nombre VARCHAR(50)
 )
@@ -1751,7 +1751,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_especie_crear`(
+CREATE PROCEDURE `sp_especie_crear`(
     IN _nombre VARCHAR(50)
 )
 BEGIN
@@ -1775,7 +1775,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_especie_eliminar`(IN _id INT)
+CREATE PROCEDURE `sp_especie_eliminar`(IN _id INT)
 BEGIN
     DELETE FROM Especies 
     WHERE IdEspecie = _id;
@@ -1797,7 +1797,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_especie_obtener_por_id`(IN _id INT)
+CREATE PROCEDURE `sp_especie_obtener_por_id`(IN _id INT)
 BEGIN
     SELECT 
         IdEspecie,
@@ -1820,7 +1820,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_especie_obtener_todas`()
+CREATE PROCEDURE `sp_especie_obtener_todas`()
 BEGIN
     SELECT 
         IdEspecie,
@@ -1842,7 +1842,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_estado_animal_actualizar`(
+CREATE PROCEDURE `sp_estado_animal_actualizar`(
     IN _id INT,
     IN _nombre VARCHAR(50)
 )
@@ -1868,7 +1868,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_estado_animal_crear`(
+CREATE PROCEDURE `sp_estado_animal_crear`(
     IN _nombre VARCHAR(50)
 )
 BEGIN
@@ -1892,7 +1892,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_estado_animal_eliminar`(IN _id INT)
+CREATE PROCEDURE `sp_estado_animal_eliminar`(IN _id INT)
 BEGIN
     DELETE FROM Estado_Animal 
     WHERE IdEstadoAnimal = _id;
@@ -1914,7 +1914,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_estado_animal_obtener_por_id`(IN _id INT)
+CREATE PROCEDURE `sp_estado_animal_obtener_por_id`(IN _id INT)
 BEGIN
     SELECT 
         IdEstadoAnimal,
@@ -1937,7 +1937,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_estado_animal_obtener_todos`()
+CREATE PROCEDURE `sp_estado_animal_obtener_todos`()
 BEGIN
     SELECT 
         IdEstadoAnimal,
@@ -1959,7 +1959,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_esterilizacion_actualizar`(
+CREATE PROCEDURE `sp_esterilizacion_actualizar`(
     IN _id INT,
     IN _id_animal INT,
     IN _id_veterinario INT,
@@ -1994,7 +1994,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_esterilizacion_crear`(
+CREATE PROCEDURE `sp_esterilizacion_crear`(
     IN _id_animal INT,
     IN _id_veterinario INT,
     IN _fecha DATETIME,
@@ -2034,7 +2034,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_esterilizacion_eliminar`(IN _id INT)
+CREATE PROCEDURE `sp_esterilizacion_eliminar`(IN _id INT)
 BEGIN
     DELETE FROM Esterilizacion 
     WHERE IdEsterilizacion = _id;
@@ -2056,7 +2056,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_esterilizacion_obtener_por_id`(IN _id INT)
+CREATE PROCEDURE `sp_esterilizacion_obtener_por_id`(IN _id INT)
 BEGIN
     SELECT 
         IdEsterilizacion,
@@ -2083,7 +2083,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_esterilizacion_obtener_todas`()
+CREATE PROCEDURE `sp_esterilizacion_obtener_todas`()
 BEGIN
     SELECT 
         IdEsterilizacion,
@@ -2109,7 +2109,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_foto_animal_actualizar`(
+CREATE PROCEDURE `sp_foto_animal_actualizar`(
     IN _id INT,
     IN _id_animal INT,
     IN _ruta VARCHAR(255),
@@ -2142,7 +2142,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_foto_animal_crear`(
+CREATE PROCEDURE `sp_foto_animal_crear`(
     IN _id_animal INT,
     IN _ruta VARCHAR(255),
     IN _es_principal BOOLEAN,
@@ -2179,7 +2179,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_foto_animal_eliminar`(IN _id INT)
+CREATE PROCEDURE `sp_foto_animal_eliminar`(IN _id INT)
 BEGIN
     DELETE FROM Foto_Animal 
     WHERE IdFotoAnimal = _id;
@@ -2201,7 +2201,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_foto_animal_obtener_por_id`(IN _id INT)
+CREATE PROCEDURE `sp_foto_animal_obtener_por_id`(IN _id INT)
 BEGIN
     SELECT 
         IdFotoAnimal,
@@ -2227,7 +2227,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_foto_animal_obtener_todas`()
+CREATE PROCEDURE `sp_foto_animal_obtener_todas`()
 BEGIN
     SELECT 
         IdFotoAnimal,
@@ -2252,7 +2252,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_ingreso_animal_actualizar`(
+CREATE PROCEDURE `sp_ingreso_animal_actualizar`(
     IN _id INT,
     IN _id_animal INT,
     IN _fecha DATETIME,
@@ -2289,7 +2289,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_ingreso_animal_crear`(
+CREATE PROCEDURE `sp_ingreso_animal_crear`(
     IN _id_animal INT,
     IN _fecha DATETIME,
     IN _motivo VARCHAR(255),
@@ -2332,7 +2332,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_ingreso_animal_eliminar`(IN _id INT)
+CREATE PROCEDURE `sp_ingreso_animal_eliminar`(IN _id INT)
 BEGIN
     DELETE FROM Ingreso_Animal 
     WHERE IdIngresoAnimal = _id;
@@ -2354,7 +2354,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_ingreso_animal_obtener_por_id`(IN _id INT)
+CREATE PROCEDURE `sp_ingreso_animal_obtener_por_id`(IN _id INT)
 BEGIN
     SELECT 
         IdIngresoAnimal,
@@ -2382,7 +2382,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_ingreso_animal_obtener_todos`()
+CREATE PROCEDURE `sp_ingreso_animal_obtener_todos`()
 BEGIN
     SELECT 
         IdIngresoAnimal,
@@ -2409,7 +2409,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_medicamento_actualizar`(
+CREATE PROCEDURE `sp_medicamento_actualizar`(
     IN _id INT,
     IN _nombre VARCHAR(50),
     IN _descripcion TEXT
@@ -2437,7 +2437,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_medicamento_buscar`(IN _buscar VARCHAR(50))
+CREATE PROCEDURE `sp_medicamento_buscar`(IN _buscar VARCHAR(50))
 BEGIN
     SELECT IdMedicamento, nombre, descripcion 
     FROM Medicamentos 
@@ -2458,7 +2458,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_medicamento_crear`(
+CREATE PROCEDURE `sp_medicamento_crear`(
     IN _nombre VARCHAR(50),
     IN _descripcion TEXT
 )
@@ -2483,7 +2483,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_medicamento_eliminar`(IN _id INT)
+CREATE PROCEDURE `sp_medicamento_eliminar`(IN _id INT)
 BEGIN
     DELETE FROM Medicamentos 
     WHERE IdMedicamento = _id;
@@ -2505,7 +2505,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_medicamento_obtener_por_id`(IN _id INT)
+CREATE PROCEDURE `sp_medicamento_obtener_por_id`(IN _id INT)
 BEGIN
     SELECT IdMedicamento, nombre, descripcion 
     FROM Medicamentos 
@@ -2526,7 +2526,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_medicamento_obtener_todos`()
+CREATE PROCEDURE `sp_medicamento_obtener_todos`()
 BEGIN
     SELECT IdMedicamento, nombre, descripcion 
     FROM Medicamentos;
@@ -2546,7 +2546,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_persona_actualizar`(
+CREATE PROCEDURE `sp_persona_actualizar`(
 IN _id INT,
 IN _apellido VARCHAR (100),
 IN _nombre VARCHAR (100),
@@ -2583,7 +2583,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_persona_buscar`(IN _buscar VARCHAR (100))
+CREATE PROCEDURE `sp_persona_buscar`(IN _buscar VARCHAR (100))
 BEGIN
 SELECT IdPersona, apellido, nombre, dni, telefono, email, direccion, fecha_alta, activo FROM Persona
 WHERE nombre LIKE CONCAT ('%', _buscar , '%')
@@ -2604,7 +2604,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_persona_crear`(
+CREATE PROCEDURE `sp_persona_crear`(
 IN _apellido VARCHAR (100),
 IN _nombre VARCHAR (100),
 IN _dni VARCHAR (100),
@@ -2651,7 +2651,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_persona_eliminar`(IN _id INT)
+CREATE PROCEDURE `sp_persona_eliminar`(IN _id INT)
 BEGIN
 UPDATE Persona
 SET Activo = FALSE
@@ -2672,7 +2672,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_persona_existe_dni`(IN _dni VARCHAR (20))
+CREATE PROCEDURE `sp_persona_existe_dni`(IN _dni VARCHAR (20))
 BEGIN
 SELECT EXISTS (
 SELECT TRUE 
@@ -2695,7 +2695,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_persona_existe_email`(
+CREATE PROCEDURE `sp_persona_existe_email`(
     IN _email VARCHAR(100)
 )
 BEGIN
@@ -2720,7 +2720,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_persona_obtener_por_dni`(IN _dni VARCHAR (20))
+CREATE PROCEDURE `sp_persona_obtener_por_dni`(IN _dni VARCHAR (20))
 BEGIN
 SELECT IdPersona, apellido, nombre, dni, telefono, email, direccion, fecha_alta, activo FROM Persona
 WHERE dni = _dni;
@@ -2740,7 +2740,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_persona_obtener_por_id`(IN _id int)
+CREATE PROCEDURE `sp_persona_obtener_por_id`(IN _id int)
 BEGIN
 SELECT IdPersona, apellido, nombre, dni, telefono, email, direccion, fecha_alta, activo FROM Persona
 WHERE IdPersona = _id;
@@ -2760,7 +2760,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_persona_obtener_todos`()
+CREATE PROCEDURE `sp_persona_obtener_todos`()
 BEGIN
 SELECT IdPersona, apellido, nombre, dni, telefono, email, direccion, fecha_alta, activo FROM Persona;
 END ;;
@@ -2779,7 +2779,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_plan_alimentacion_actualizar`(
+CREATE PROCEDURE `sp_plan_alimentacion_actualizar`(
     IN _id INT,
     IN _id_animal INT,
     IN _tipo_alimento VARCHAR(100),
@@ -2818,7 +2818,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_plan_alimentacion_crear`(
+CREATE PROCEDURE `sp_plan_alimentacion_crear`(
     IN _id_animal INT,
     IN _tipo_alimento VARCHAR(100),
     IN _cantidad DECIMAL(10,2),
@@ -2864,7 +2864,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_plan_alimentacion_eliminar`(IN _id INT)
+CREATE PROCEDURE `sp_plan_alimentacion_eliminar`(IN _id INT)
 BEGIN
     DELETE FROM Plan_Alimentacion 
     WHERE IdPlan = _id;
@@ -2886,7 +2886,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_plan_alimentacion_obtener_por_id`(IN _id INT)
+CREATE PROCEDURE `sp_plan_alimentacion_obtener_por_id`(IN _id INT)
 BEGIN
     SELECT 
         IdPlan,
@@ -2915,7 +2915,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_plan_alimentacion_obtener_todos`()
+CREATE PROCEDURE `sp_plan_alimentacion_obtener_todos`()
 BEGIN
     SELECT 
         IdPlan,
@@ -2943,7 +2943,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_predio_actualizar`(
+CREATE PROCEDURE `sp_predio_actualizar`(
     IN _id INT,
     IN _nombre VARCHAR(100),
     IN _direccion VARCHAR(150),
@@ -2974,7 +2974,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_predio_crear`(
+CREATE PROCEDURE `sp_predio_crear`(
     IN _nombre VARCHAR(100),
     IN _direccion VARCHAR(150),
     IN _descripcion VARCHAR(255)
@@ -3008,7 +3008,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_predio_eliminar`(IN _id INT)
+CREATE PROCEDURE `sp_predio_eliminar`(IN _id INT)
 BEGIN
     DELETE FROM Predio 
     WHERE IdPredio = _id;
@@ -3030,7 +3030,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_predio_obtener_por_id`(IN _id INT)
+CREATE PROCEDURE `sp_predio_obtener_por_id`(IN _id INT)
 BEGIN
     SELECT 
         IdPredio,
@@ -3055,7 +3055,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_predio_obtener_todos`()
+CREATE PROCEDURE `sp_predio_obtener_todos`()
 BEGIN
     SELECT 
         IdPredio,
@@ -3079,7 +3079,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_raza_crear`(
+CREATE PROCEDURE `sp_raza_crear`(
     IN _id_especie INT,
     IN _nombre VARCHAR(50)
 )
@@ -3104,7 +3104,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_raza_obtener_por_especie`(IN _id_especie INT)
+CREATE PROCEDURE `sp_raza_obtener_por_especie`(IN _id_especie INT)
 BEGIN
     SELECT IdRaza, id_especie, nombre 
     FROM Razas 
@@ -3125,7 +3125,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_raza_obtener_todas`()
+CREATE PROCEDURE `sp_raza_obtener_todas`()
 BEGIN
     SELECT IdRaza, id_especie, nombre 
     FROM Razas;
@@ -3145,7 +3145,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_rol_actualizar`(
+CREATE PROCEDURE `sp_rol_actualizar`(
     IN _id INT,
     IN _nombre VARCHAR(50),
     IN _descripcion VARCHAR(255)
@@ -3174,7 +3174,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_rol_crear`(
+CREATE PROCEDURE `sp_rol_crear`(
     IN _nombre VARCHAR(50),
     IN _descripcion VARCHAR(255)
 )
@@ -3205,7 +3205,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_rol_eliminar`(IN _id INT)
+CREATE PROCEDURE `sp_rol_eliminar`(IN _id INT)
 BEGIN
     DELETE FROM Roles 
     WHERE IdRol = _id;
@@ -3227,7 +3227,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_rol_obtener_por_id`(IN _id INT)
+CREATE PROCEDURE `sp_rol_obtener_por_id`(IN _id INT)
 BEGIN
     SELECT 
         IdRol,
@@ -3251,7 +3251,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_rol_obtener_todos`()
+CREATE PROCEDURE `sp_rol_obtener_todos`()
 BEGIN
     SELECT 
         IdRol,
@@ -3274,7 +3274,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_sector_actualizar`(
+CREATE PROCEDURE `sp_sector_actualizar`(
     IN _id INT,
     IN _nombre VARCHAR(100),
     IN _capacidad INT,
@@ -3307,7 +3307,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_sector_crear`(
+CREATE PROCEDURE `sp_sector_crear`(
     IN _nombre VARCHAR(100),
     IN _capacidad INT,
     IN _descripcion VARCHAR(255),
@@ -3344,7 +3344,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_sector_eliminar`(IN _id INT)
+CREATE PROCEDURE `sp_sector_eliminar`(IN _id INT)
 BEGIN
     DELETE FROM Sector 
     WHERE IdSector = _id;
@@ -3366,7 +3366,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_sector_obtener_por_id`(IN _id INT)
+CREATE PROCEDURE `sp_sector_obtener_por_id`(IN _id INT)
 BEGIN
     SELECT 
         IdSector,
@@ -3392,7 +3392,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_sector_obtener_todos`()
+CREATE PROCEDURE `sp_sector_obtener_todos`()
 BEGIN
     SELECT 
         IdSector,
@@ -3417,7 +3417,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_seguimiento_adopcion_actualizar`(
+CREATE PROCEDURE `sp_seguimiento_adopcion_actualizar`(
     IN _id INT,
     IN _id_adopcion INT,
     IN _fecha DATETIME,
@@ -3452,7 +3452,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_seguimiento_adopcion_crear`(
+CREATE PROCEDURE `sp_seguimiento_adopcion_crear`(
     IN _id_adopcion INT,
     IN _fecha DATETIME,
     IN _tipo VARCHAR(50),
@@ -3492,7 +3492,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_seguimiento_adopcion_eliminar`(IN _id INT)
+CREATE PROCEDURE `sp_seguimiento_adopcion_eliminar`(IN _id INT)
 BEGIN
     DELETE FROM Seguimiento_Adopcion 
     WHERE IdSeguimientoAdopcion = _id;
@@ -3514,7 +3514,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_seguimiento_adopcion_obtener_por_id`(IN _id INT)
+CREATE PROCEDURE `sp_seguimiento_adopcion_obtener_por_id`(IN _id INT)
 BEGIN
     SELECT 
         IdSeguimientoAdopcion,
@@ -3541,7 +3541,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_seguimiento_adopcion_obtener_todos`()
+CREATE PROCEDURE `sp_seguimiento_adopcion_obtener_todos`()
 BEGIN
     SELECT 
         IdSeguimientoAdopcion,
@@ -3567,7 +3567,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_sexo_actualizar`(
+CREATE PROCEDURE `sp_sexo_actualizar`(
     IN _id INT,
     IN _nombre VARCHAR(20)
 )
@@ -3593,7 +3593,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_sexo_crear`(
+CREATE PROCEDURE `sp_sexo_crear`(
     IN _nombre VARCHAR(20)
 )
 BEGIN
@@ -3617,7 +3617,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_sexo_eliminar`(IN _id INT)
+CREATE PROCEDURE `sp_sexo_eliminar`(IN _id INT)
 BEGIN
     DELETE FROM Sexo 
     WHERE IdSexo = _id;
@@ -3639,7 +3639,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_sexo_obtener_por_id`(IN _id INT)
+CREATE PROCEDURE `sp_sexo_obtener_por_id`(IN _id INT)
 BEGIN
     SELECT 
         IdSexo,
@@ -3662,7 +3662,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_sexo_obtener_todos`()
+CREATE PROCEDURE `sp_sexo_obtener_todos`()
 BEGIN
     SELECT 
         IdSexo,
@@ -3684,7 +3684,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_solicitud_adopcion_actualizar`(
+CREATE PROCEDURE `sp_solicitud_adopcion_actualizar`(
     IN _id INT,
     IN _id_persona INT,
     IN _id_animal INT,
@@ -3719,7 +3719,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_solicitud_adopcion_crear`(
+CREATE PROCEDURE `sp_solicitud_adopcion_crear`(
     IN _id_persona INT,
     IN _id_animal INT,
     IN _fecha DATETIME,
@@ -3759,7 +3759,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_solicitud_adopcion_eliminar`(IN _id INT)
+CREATE PROCEDURE `sp_solicitud_adopcion_eliminar`(IN _id INT)
 BEGIN
     DELETE FROM Solicitud_Adopcion 
     WHERE IdSolicitudAdopcion = _id;
@@ -3781,7 +3781,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_solicitud_adopcion_obtener_por_id`(IN _id INT)
+CREATE PROCEDURE `sp_solicitud_adopcion_obtener_por_id`(IN _id INT)
 BEGIN
     SELECT 
         IdSolicitudAdopcion,
@@ -3808,7 +3808,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_solicitud_adopcion_obtener_todas`()
+CREATE PROCEDURE `sp_solicitud_adopcion_obtener_todas`()
 BEGIN
     SELECT 
         IdSolicitudAdopcion,
@@ -3834,7 +3834,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_tratamiento_actualizar`(
+CREATE PROCEDURE `sp_tratamiento_actualizar`(
     IN _id INT,
     IN _id_atencion_veterinaria INT,
     IN _descripcion VARCHAR(255),
@@ -3871,7 +3871,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_tratamiento_crear`(
+CREATE PROCEDURE `sp_tratamiento_crear`(
     IN _id_atencion_veterinaria INT,
     IN _descripcion VARCHAR(255),
     IN _fecha_inicio DATETIME,
@@ -3914,7 +3914,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_tratamiento_eliminar`(IN _id INT)
+CREATE PROCEDURE `sp_tratamiento_eliminar`(IN _id INT)
 BEGIN
     DELETE FROM Tratamientos 
     WHERE IdTratamiento = _id;
@@ -3936,7 +3936,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_tratamiento_medicamento_actualizar`(
+CREATE PROCEDURE `sp_tratamiento_medicamento_actualizar`(
     IN _id INT,
     IN _id_medicamento INT,
     IN _id_tratamiento INT,
@@ -3973,7 +3973,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_tratamiento_medicamento_crear`(
+CREATE PROCEDURE `sp_tratamiento_medicamento_crear`(
     IN _id_medicamento INT,
     IN _id_tratamiento INT,
     IN _dosis VARCHAR(100),
@@ -4016,7 +4016,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_tratamiento_medicamento_eliminar`(IN _id INT)
+CREATE PROCEDURE `sp_tratamiento_medicamento_eliminar`(IN _id INT)
 BEGIN
     DELETE FROM Tratamiento_Medicamento 
     WHERE IdTratamientoMedico = _id;
@@ -4038,7 +4038,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_tratamiento_medicamento_obtener_por_id`(IN _id INT)
+CREATE PROCEDURE `sp_tratamiento_medicamento_obtener_por_id`(IN _id INT)
 BEGIN
     SELECT 
         IdTratamientoMedico,
@@ -4066,7 +4066,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_tratamiento_medicamento_obtener_todos`()
+CREATE PROCEDURE `sp_tratamiento_medicamento_obtener_todos`()
 BEGIN
     SELECT 
         IdTratamientoMedico,
@@ -4093,7 +4093,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_tratamiento_obtener_por_id`(IN _id INT)
+CREATE PROCEDURE `sp_tratamiento_obtener_por_id`(IN _id INT)
 BEGIN
     SELECT 
         IdTratamiento,
@@ -4121,7 +4121,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_tratamiento_obtener_todos`()
+CREATE PROCEDURE `sp_tratamiento_obtener_todos`()
 BEGIN
     SELECT 
         IdTratamiento,
@@ -4148,7 +4148,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_usuario_actualizar`(
+CREATE PROCEDURE `sp_usuario_actualizar`(
     IN _id INT,
     IN _user VARCHAR(50),
     IN _password_hash VARCHAR(255),
@@ -4181,7 +4181,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_usuario_crear`(
+CREATE PROCEDURE `sp_usuario_crear`(
     IN _user VARCHAR(50),
     IN _password_hash VARCHAR(255),
     IN _activo BOOLEAN,
@@ -4221,7 +4221,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_usuario_eliminar`(IN _id INT)
+CREATE PROCEDURE `sp_usuario_eliminar`(IN _id INT)
 BEGIN
     DELETE FROM Usuarios 
     WHERE IdUsuario = _id;
@@ -4243,7 +4243,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_usuario_obtener_por_id`(IN _id INT)
+CREATE PROCEDURE `sp_usuario_obtener_por_id`(IN _id INT)
 BEGIN
     SELECT 
         IdUsuario,
@@ -4270,7 +4270,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_usuario_obtener_todos`()
+CREATE PROCEDURE `sp_usuario_obtener_todos`()
 BEGIN
     SELECT 
         IdUsuario,
@@ -4296,7 +4296,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_usuario_rol_crear`(
+CREATE PROCEDURE `sp_usuario_rol_crear`(
     IN _id_usuario INT,
     IN _id_rol INT
 )
@@ -4321,7 +4321,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_usuario_rol_eliminar`(
+CREATE PROCEDURE `sp_usuario_rol_eliminar`(
     IN _id_usuario INT,
     IN _id_rol INT
 )
@@ -4346,7 +4346,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_usuario_rol_obtener_por_clave`(
+CREATE PROCEDURE `sp_usuario_rol_obtener_por_clave`(
     IN _id_usuario INT,
     IN _id_rol INT
 )
@@ -4372,7 +4372,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_usuario_rol_obtener_por_usuario`(
+CREATE PROCEDURE `sp_usuario_rol_obtener_por_usuario`(
     IN _id_usuario INT
 )
 BEGIN
@@ -4397,7 +4397,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_usuario_rol_obtener_todos`()
+CREATE PROCEDURE `sp_usuario_rol_obtener_todos`()
 BEGIN
     SELECT 
         IdUsuario,
@@ -4419,7 +4419,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_vacunacion_actualizar`(
+CREATE PROCEDURE `sp_vacunacion_actualizar`(
     IN _id INT,
     IN _id_animal INT,
     IN _id_vacuna INT,
@@ -4454,7 +4454,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_vacunacion_crear`(
+CREATE PROCEDURE `sp_vacunacion_crear`(
     IN _id_animal INT,
     IN _id_vacuna INT,
     IN _fecha DATETIME,
@@ -4494,7 +4494,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_vacunacion_eliminar`(IN _id INT)
+CREATE PROCEDURE `sp_vacunacion_eliminar`(IN _id INT)
 BEGIN
     DELETE FROM Vacunacion 
     WHERE IdVacunacion = _id;
@@ -4516,7 +4516,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_vacunacion_obtener_por_id`(IN _id INT)
+CREATE PROCEDURE `sp_vacunacion_obtener_por_id`(IN _id INT)
 BEGIN
     SELECT 
         IdVacunacion,
@@ -4543,7 +4543,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_vacunacion_obtener_todas`()
+CREATE PROCEDURE `sp_vacunacion_obtener_todas`()
 BEGIN
     SELECT 
         IdVacunacion,
@@ -4569,7 +4569,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_vacuna_actualizar`(
+CREATE PROCEDURE `sp_vacuna_actualizar`(
     IN _id INT,
     IN _nombre VARCHAR(50),
     IN _descripcion TEXT
@@ -4597,7 +4597,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_vacuna_buscar`(IN _buscar VARCHAR(50))
+CREATE PROCEDURE `sp_vacuna_buscar`(IN _buscar VARCHAR(50))
 BEGIN
     SELECT IdVacuna, nombre, descripcion 
     FROM Vacunas 
@@ -4618,7 +4618,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_vacuna_crear`(
+CREATE PROCEDURE `sp_vacuna_crear`(
     IN _nombre VARCHAR(50),
     IN _descripcion TEXT
 )
@@ -4643,7 +4643,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_vacuna_eliminar`(IN _id INT)
+CREATE PROCEDURE `sp_vacuna_eliminar`(IN _id INT)
 BEGIN
     DELETE FROM Vacunas 
     WHERE IdVacuna = _id;
@@ -4665,7 +4665,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_vacuna_obtener_por_id`(IN _id INT)
+CREATE PROCEDURE `sp_vacuna_obtener_por_id`(IN _id INT)
 BEGIN
     SELECT IdVacuna, nombre, descripcion 
     FROM Vacunas 
@@ -4686,7 +4686,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_vacuna_obtener_todos`()
+CREATE PROCEDURE `sp_vacuna_obtener_todos`()
 BEGIN
     SELECT IdVacuna, nombre, descripcion 
     FROM Vacunas;
@@ -4706,7 +4706,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_veterinario_actualizar`(
+CREATE PROCEDURE `sp_veterinario_actualizar`(
     IN _id INT,
     IN _matricula VARCHAR(50),
     IN _nombre VARCHAR(50),
@@ -4739,7 +4739,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_veterinario_crear`(
+CREATE PROCEDURE `sp_veterinario_crear`(
     IN _matricula VARCHAR(50),
     IN _nombre VARCHAR(50),
     IN _apellido VARCHAR(50),
@@ -4776,7 +4776,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_veterinario_eliminar`(IN _id INT)
+CREATE PROCEDURE `sp_veterinario_eliminar`(IN _id INT)
 BEGIN
     DELETE FROM Veterinarios 
     WHERE IdVeterinario = _id;
@@ -4798,7 +4798,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_veterinario_obtener_por_id`(IN _id INT)
+CREATE PROCEDURE `sp_veterinario_obtener_por_id`(IN _id INT)
 BEGIN
     SELECT 
         IdVeterinario,
@@ -4824,7 +4824,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_veterinario_obtener_todos`()
+CREATE PROCEDURE `sp_veterinario_obtener_todos`()
 BEGIN
     SELECT 
         IdVeterinario,
@@ -4851,7 +4851,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_usuario_obtener_por_usuario`(IN _usuario VARCHAR(50))
+CREATE PROCEDURE `sp_usuario_obtener_por_usuario`(IN _usuario VARCHAR(50))
 BEGIN
 SELECT
     IdUsuario,
@@ -4878,7 +4878,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_usuario_obtener_roles`(IN _id_usuario INT)
+CREATE PROCEDURE `sp_usuario_obtener_roles`(IN _id_usuario INT)
 BEGIN
 SELECT
     r.IdRol,
@@ -4897,7 +4897,7 @@ DELIMITER ;
 
 /*!50003 DROP PROCEDURE IF EXISTS sp_vacunas_obtener_por_id */;
 DELIMITER ;;
-CREATE DEFINER=oot@localhost PROCEDURE sp_vacunas_obtener_por_id(IN _id INT)
+CREATE PROCEDURE sp_vacunas_obtener_por_id(IN _id INT)
 BEGIN
     SELECT IdVacuna, nombre, descripcion 
     FROM Vacunas 
@@ -4907,7 +4907,7 @@ DELIMITER ;
 
 /*!50003 DROP PROCEDURE IF EXISTS sp_vacunas_obtener_todos */;
 DELIMITER ;;
-CREATE DEFINER=oot@localhost PROCEDURE sp_vacunas_obtener_todos()
+CREATE PROCEDURE sp_vacunas_obtener_todos()
 BEGIN
     SELECT IdVacuna, nombre, descripcion 
     FROM Vacunas;
@@ -4916,7 +4916,7 @@ DELIMITER ;
 
 /*!50003 DROP PROCEDURE IF EXISTS sp_medicamentos_obtener_por_id */;
 DELIMITER ;;
-CREATE DEFINER=oot@localhost PROCEDURE sp_medicamentos_obtener_por_id(IN _id INT)
+CREATE PROCEDURE sp_medicamentos_obtener_por_id(IN _id INT)
 BEGIN
     SELECT IdMedicamento, nombre, descripcion 
     FROM Medicamentos 
@@ -4926,12 +4926,63 @@ DELIMITER ;
 
 /*!50003 DROP PROCEDURE IF EXISTS sp_medicamentos_obtener_todos */;
 DELIMITER ;;
-CREATE DEFINER=oot@localhost PROCEDURE sp_medicamentos_obtener_todos()
+CREATE PROCEDURE sp_medicamentos_obtener_todos()
 BEGIN
     SELECT IdMedicamento, nombre, descripcion 
     FROM Medicamentos;
 END ;;
 DELIMITER ;
+
+--
+-- Seed inicial de catálogos base para Patitas Calchaquíes
+--
+INSERT IGNORE INTO `Especies` (`IdEspecie`, `nombre`) VALUES
+  (1, 'Canino'),
+  (2, 'Felino');
+
+INSERT IGNORE INTO `Sexo` (`IdSexo`, `nombre`) VALUES
+  (1, 'Macho'),
+  (2, 'Hembra');
+
+INSERT IGNORE INTO `Estado_Animal` (`IdEstadoAnimal`, `nombre`) VALUES
+  (1, 'Disponible'),
+  (2, 'En Tratamiento'),
+  (3, 'Adoptado'),
+  (4, 'En Tránsito');
+
+INSERT IGNORE INTO `Razas` (`IdRaza`, `id_especie`, `nombre`) VALUES
+  (1, 1, 'Mestizo Calchaquí'),
+  (2, 2, 'Común Europeo');
+
+INSERT IGNORE INTO `Roles` (`IdRol`, `nombre`, `descripcion`) VALUES
+  (1, 'Administrador', 'Acceso total a la gestión del refugio'),
+  (2, 'Veterinario', 'Gestión de historias clínicas, vacunas y tratamientos'),
+  (3, 'Voluntario', 'Registro de animales, ingresos y adopciones');
+
+INSERT IGNORE INTO `Predio` (`IdPredio`, `nombre`, `direccion`, `descripcion`) VALUES
+  (1, 'Predio Central Ruta 40 · Cafayate', 'Ruta Nacional 40 Km 4340, Cafayate', 'Predio principal del refugio'),
+  (2, 'Anexo Comunitario · San Carlos', 'Barrio San Isidro, San Carlos', 'Posta sanitaria y hogar de tránsito');
+
+INSERT IGNORE INTO `Sector` (`IdSector`, `id_predio`, `nombre`, `capacidad`, `descripcion`) VALUES
+  (1, 1, 'Sector A · Caniles de Sol', 12, 'Patios amplios con sombra de algarrobo para caninos adultos rehabilitados.'),
+  (2, 1, 'Sector B · Gatera Calchaquí', 10, 'Recinto cerrado climatizado con estantes en altura y jardín seguro para felinos.'),
+  (3, 1, 'Sector C · Guardia Post-Quirúrgica', 6, 'Boxes individuales junto al consultorio para recuperación de cirugías y traumatología.'),
+  (4, 2, 'Posta Sanitaria San Carlos', 8, 'Hogar de tránsito comunitario y primera recepción para rescates del norte del valle.');
+
+INSERT IGNORE INTO `Veterinarios` (`IdVeterinario`, `nombre`, `apellido`, `telefono`, `matricula`) VALUES
+  (1, 'Sofía', 'Mamaní', '+54 3868 421900', 'MP-SAL-0418'),
+  (2, 'Lucas', 'Tolaba', '+54 3868 438810', 'MP-SAL-0291');
+
+INSERT IGNORE INTO `Vacunas` (`IdVacuna`, `nombre`, `descripcion`) VALUES
+  (1, 'Antirrábica Anual', 'Vacuna obligatoria anual contra el virus de la rabia.'),
+  (2, 'Séxtuple Canina', 'Moquillo, parvovirus, adenovirus, parainfluenza y leptospirosis.'),
+  (3, 'Triple Felina', 'Rinotraqueítis viral felina, calicivirus y panleucopenia.');
+
+INSERT IGNORE INTO `Medicamentos` (`IdMedicamento`, `nombre`, `descripcion`) VALUES
+  (1, 'Amoxicilina + Ácido Clavulánico 250mg', 'Antibiótico de amplio espectro para infecciones respiratorias, dérmicas y tejidos blandos.'),
+  (2, 'Meloxicam 0.5% Gotas', 'Antiinflamatorio no esteroideo (AINE) y analgésico post-quirúrgico o traumatológico.'),
+  (3, 'Ivermectina / Antiparasitario Interno-Externo', 'Control de ectoparásitos (sarna, garrapatas) y nematodos gastrointestinales.');
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;

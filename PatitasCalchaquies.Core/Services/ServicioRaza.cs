@@ -36,6 +36,10 @@ public class ServicioRaza
         if (string.IsNullOrWhiteSpace(raza.Nombre))
             throw new ArgumentException("El nombre de la raza es obligatorio");
 
-        return await _repositorio.CrearRazaAsync(raza);
+        int id = await _repositorio.CrearRazaAsync(raza);
+        if (id <= 0)
+            throw new InvalidOperationException("No se pudo guardar la raza en la base de datos.");
+
+        return id;
     }
 }

@@ -28,7 +28,7 @@ public class ServicioVacuna
 
     public async Task<IEnumerable<Vacuna>> BuscarAsync(string texto)
     {
-        if (string.IsNullOrWhiteSpace(texto)){}
+        if (string.IsNullOrWhiteSpace(texto))
         {
             return await _repositoryVacuna.ObtenerTodosAsync();
         }
@@ -39,17 +39,22 @@ public class ServicioVacuna
     {
         if (string.IsNullOrWhiteSpace(vacuna.Nombre))
         {
-            throw new ArgumentException("El nombre del medicamento es obligatorio");
+            throw new ArgumentException("El nombre de la vacuna es obligatorio");
         }
         
-        return await _repositoryVacuna.CrearAsync(vacuna);
+        int id = await _repositoryVacuna.CrearAsync(vacuna);
+        if (id <= 0)
+        {
+            throw new InvalidOperationException("No se pudo guardar la vacuna en la base de datos.");
+        }
+        return id;
     }
 
     public async Task<bool> ActualizarAsync(Vacuna vacuna)
     {
         if (vacuna.IdVacuna <= 0)
         {
-            throw new ArgumentException("El id del medicamento debe ser menor a 0");
+            throw new ArgumentException("El id de la vacuna debe ser mayor a 0");
         }
 
         var existente = await _repositoryVacuna.ObtenerPorIdAsync(vacuna.IdVacuna);
@@ -65,7 +70,7 @@ public class ServicioVacuna
     {
         if (id <= 0)
         {
-            throw new ArgumentException("El id del medicamento debe ser menor a 0");
+            throw new ArgumentException("El id de la vacuna debe ser mayor a 0");
         }
         
         return await _repositoryVacuna.EliminarAsync(id);

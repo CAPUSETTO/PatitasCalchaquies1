@@ -78,7 +78,7 @@ public class MedicamentoController : ControllerBase
                 //Respuesta
                 MedicamentoDto medicamentoDto = _mapper.Map<MedicamentoDto>(medicamento);
                 
-                return CreatedAtAction(nameof(GetById), new { id = medicamento.IdMedicamento }, medicamentoDto);
+                return CreatedAtAction(nameof(GetById), new { idMedicamento = medicamento.IdMedicamento }, medicamentoDto);
             }
             catch (ArgumentException ex)
             {
