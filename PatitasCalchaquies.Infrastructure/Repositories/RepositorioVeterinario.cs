@@ -59,6 +59,20 @@ public class RepositorioVeterinario : IRepositorioVeterinario
         try
         {
             using var conexion = await _conn.obtenerConexionAsync();
+
+            // Si ya existe un veterinario con la misma matrícula, devolver su IdVeterinario y actualizar sus datos
+            var idExistente = await conexion.ExecuteScalarAsync<int?>(
+                "SELECT `IdVeterinario` FROM `Veterinarios` WHERE LOWER(`matricula`) = LOWER(@Matricula) LIMIT 1;",
+                new { veterinario.Matricula }
+            );
+
+            if (idExistente.HasValue && idExistente.Value > 0)
+            {
+                veterinario.IdVeterinario = idExistente.Value;
+                await ActualizarAsync(veterinario);
+                return idExistente.Value;
+            }
+
             var parametros = new DynamicParameters();
             parametros.Add("_matricula", veterinario.Matricula, DbType.String, ParameterDirection.Input);
             parametros.Add("_nombre", veterinario.Nombre, DbType.String, ParameterDirection.Input);
@@ -96,7 +110,7 @@ public class RepositorioVeterinario : IRepositorioVeterinario
                 commandType: CommandType.StoredProcedure
             );
 
-            return filas > 0;
+            return filas >= 0;
         }
         catch (Exception error)
         {

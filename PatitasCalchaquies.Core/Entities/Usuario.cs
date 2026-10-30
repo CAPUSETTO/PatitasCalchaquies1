@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PatitasCalchaquies.Core.Entities;
@@ -31,4 +31,41 @@ public class Usuario
 
     [Column("ultimo_acceso")]
     public DateTime? UltimoAcceso { get; set; }
+
+    [Column("nombre")]
+    [MaxLength(50)]
+    public string? Nombre { get; set; }
+
+    [Column("apellido")]
+    [MaxLength(50)]
+    public string? Apellido { get; set; }
+
+    [Column("etiqueta_area")]
+    [MaxLength(100)]
+    public string? EtiquetaArea { get; set; }
+
+    [Column("id_veterinario")]
+    public int? IdVeterinario { get; set; }
+
+    // Propiedades proyectadas desde el JOIN con Roles y Veterinarios
+    [NotMapped]
+    public int? IdRol { get; set; }
+
+    [NotMapped]
+    public string? RolNombre { get; set; }
+
+    [NotMapped]
+    public string? RolDescripcion { get; set; }
+
+    [NotMapped]
+    public string? VeterinarioMatricula { get; set; }
+
+    [NotMapped]
+    public string? VeterinarioNombre { get; set; }
+
+    [NotMapped]
+    public string? VeterinarioApellido { get; set; }
+
+    [NotMapped]
+    public string? VeterinarioTelefono { get; set; }
 }

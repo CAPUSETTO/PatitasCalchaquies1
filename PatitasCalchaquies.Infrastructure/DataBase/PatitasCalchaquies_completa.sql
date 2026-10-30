@@ -4983,6 +4983,79 @@ INSERT IGNORE INTO `Medicamentos` (`IdMedicamento`, `nombre`, `descripcion`) VAL
   (2, 'Meloxicam 0.5% Gotas', 'Antiinflamatorio no esteroideo (AINE) y analgésico post-quirúrgico o traumatológico.'),
   (3, 'Ivermectina / Antiparasitario Interno-Externo', 'Control de ectoparásitos (sarna, garrapatas) y nematodos gastrointestinales.');
 
+/*!50003 DROP PROCEDURE IF EXISTS `sp_operador_obtener_todos` */;
+DELIMITER ;;
+CREATE PROCEDURE `sp_operador_obtener_todos`()
+BEGIN
+    SELECT
+        u.IdUsuario,
+        u.usuario AS User,
+        u.password_hash AS PasswordHash,
+        u.activo AS Activo,
+        u.fecha_creacion AS FechaCreacion,
+        u.ultimo_acceso AS UltimoAcceso,
+        COALESCE(u.nombre, v.nombre) AS Nombre,
+        COALESCE(u.apellido, v.apellido) AS Apellido,
+        u.etiqueta_area AS EtiquetaArea,
+        COALESCE(u.id_veterinario, v.IdVeterinario) AS IdVeterinario,
+        COALESCE(r.IdRol, 3) AS IdRol,
+        COALESCE(r.nombre, 'Voluntario') AS RolNombre,
+        r.descripcion AS RolDescripcion,
+        v.matricula AS VeterinarioMatricula,
+        v.nombre AS VeterinarioNombre,
+        v.apellido AS VeterinarioApellido,
+        v.telefono AS VeterinarioTelefono
+    FROM `Usuarios` u
+    LEFT JOIN `Usuario_Rol` ur ON ur.IdUsuario = u.IdUsuario
+    LEFT JOIN `Roles` r ON r.IdRol = ur.IdRol
+    LEFT JOIN `Veterinarios` v ON v.IdVeterinario = u.id_veterinario
+    ORDER BY u.IdUsuario ASC;
+END ;;
+DELIMITER ;
+
+/*!50003 DROP PROCEDURE IF EXISTS `sp_operador_obtener_por_id` */;
+DELIMITER ;;
+CREATE PROCEDURE `sp_operador_obtener_por_id`(IN _id_usuario INT)
+BEGIN
+    SELECT
+        u.IdUsuario,
+        u.usuario AS User,
+        u.password_hash AS PasswordHash,
+        u.activo AS Activo,
+        u.fecha_creacion AS FechaCreacion,
+        u.ultimo_acceso AS UltimoAcceso,
+        COALESCE(u.nombre, v.nombre) AS Nombre,
+        COALESCE(u.apellido, v.apellido) AS Apellido,
+        u.etiqueta_area AS EtiquetaArea,
+        COALESCE(u.id_veterinario, v.IdVeterinario) AS IdVeterinario,
+        COALESCE(r.IdRol, 3) AS IdRol,
+        COALESCE(r.nombre, 'Voluntario') AS RolNombre,
+        r.descripcion AS RolDescripcion,
+        v.matricula AS VeterinarioMatricula,
+        v.nombre AS VeterinarioNombre,
+        v.apellido AS VeterinarioApellido,
+        v.telefono AS VeterinarioTelefono
+    FROM `Usuarios` u
+    LEFT JOIN `Usuario_Rol` ur ON ur.IdUsuario = u.IdUsuario
+    LEFT JOIN `Roles` r ON r.IdRol = ur.IdRol
+    LEFT JOIN `Veterinarios` v ON v.IdVeterinario = u.id_veterinario
+    WHERE u.IdUsuario = _id_usuario
+    LIMIT 1;
+END ;;
+DELIMITER ;
+
+INSERT IGNORE INTO `Usuarios` (`IdUsuario`, `usuario`, `password_hash`, `activo`, `fecha_creacion`, `ultimo_acceso`, `nombre`, `apellido`, `etiqueta_area`, `id_veterinario`) VALUES
+  (1, 'admin.valles', 'calchaqui2026', 1, '2025-03-10', '2026-10-25 09:00:00', 'Coordinación General', 'Valles', 'Coordinación General', NULL),
+  (2, 'dra.mamani', 'vet2026', 1, '2025-05-14', '2026-10-25 10:30:00', 'Sofía', 'Mamaní', 'Veterinaria Clínica', 1),
+  (3, 'voluntario.cafayate', 'patitas2026', 1, '2025-08-01', '2026-10-25 11:15:00', 'Guardia Voluntaria', 'Cafayate', 'Guardia y Adopciones', NULL),
+  (4, 'dr.tolaba', 'vet2026', 1, '2025-09-20', NULL, 'Lucas', 'Tolaba', 'Cirugía y Esterilizaciones', 2);
+
+INSERT IGNORE INTO `Usuario_Rol` (`IdUsuario`, `IdRol`) VALUES
+  (1, 1),
+  (2, 2),
+  (3, 3),
+  (4, 2);
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;

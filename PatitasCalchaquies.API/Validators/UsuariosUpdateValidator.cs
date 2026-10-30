@@ -15,7 +15,7 @@ public class UsuarioUpdateValidator : AbstractValidator<UsuarioActualizarDto>
             .MaximumLength(50).WithMessage("El nombre de usuario no puede superar los 50 caracteres.");
 
         RuleFor(x => x.PasswordHash)
-            .NotEmpty().WithMessage("La contraseña es obligatoria.")
-            .MaximumLength(255).WithMessage("El hash de la contraseña no puede superar los 255 caracteres.");
+            .MaximumLength(255).WithMessage("El hash de la contraseña no puede superar los 255 caracteres.")
+            .When(x => !string.IsNullOrEmpty(x.PasswordHash));
     }
 }

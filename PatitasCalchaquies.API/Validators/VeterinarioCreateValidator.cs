@@ -21,6 +21,6 @@ public class VeterinarioCreateValidator : AbstractValidator<VeterinarioCrearDto>
 
         RuleFor(x => x.Telefono)
             .NotEmpty().WithMessage("El teléfono es obligatorio.")
-            .Matches(@"^\+?\d{1,15}$").WithMessage("El teléfono debe contener solo dígitos numéricos y opcionalmente prefijo '+'.");
+            .Matches(@"^\+?[\d\s\-()]{6,20}$").WithMessage("El teléfono debe tener un formato válido.");
     }
 }

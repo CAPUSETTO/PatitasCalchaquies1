@@ -11,4 +11,8 @@ public interface IRepositorioUsuario
     Task<bool> ActualizarAsync(Usuario usuario);
     Task<bool> EliminarAsync(int id);
     Task<IEnumerable<Rol>> ObtenerRolesAsync(int idUsuario);
+    Task<IEnumerable<Usuario>> ObtenerOperadoresDetalladosAsync();
+    Task<Usuario?> ObtenerOperadorDetalladoPorIdAsync(int idUsuario);
+    Task<bool> AsignarRolUnicoAsync(int idUsuario, int idRol);
+    Task<bool> ActualizarUltimoAccesoAsync(int idUsuario, DateTime fechaAcceso);
 }
