@@ -1,0 +1,5 @@
+name: ji
+variables:
+  - name: baseurl
+    value: http://localhost:5227
+    description: ""

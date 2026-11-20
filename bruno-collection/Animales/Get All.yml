@@ -1,0 +1,16 @@
+info:
+  name: Obtener Animales
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{baseurl}}/api/Animales"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

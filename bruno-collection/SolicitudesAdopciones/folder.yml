@@ -1,0 +1,7 @@
+info:
+  name: SolicitudesAdopciones
+  type: folder
+  seq: 21
+
+request:
+  auth: inherit

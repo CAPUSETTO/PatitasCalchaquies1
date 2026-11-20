@@ -1,0 +1,22 @@
+info:
+  name: Cambiar Estado de Operador
+  type: http
+  seq: 10
+
+http:
+  method: PATCH
+  url: "{{baseurl}}/api/Usuarios/operadores/1/estado"
+  body:
+    type: json
+    data: |-
+      {
+        "activo": true
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
