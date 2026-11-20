@@ -92,9 +92,9 @@ public class VacunaController : ControllerBase
         }
 
         [HttpPut("{idVacuna:int}")]
-        public async Task<IActionResult> Actualizar(int idVacuna, [FromBody] VacunaDto dto)
+        public async Task<IActionResult> Actualizar(int idVacuna, [FromBody] VacunaActualizarDto dto)
         {
-            if (idVacuna != dto.IdVacuna)
+            if (idVacuna != dto.idVacuna)
             {
                 return BadRequest(new {error = "El id de la url no coincide con el cuerpo de la petición"});
             }

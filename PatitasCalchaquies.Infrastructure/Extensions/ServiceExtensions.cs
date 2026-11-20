@@ -31,6 +31,7 @@ namespace PatitasCalchaquies.Infrastructure.Extensions
             //Raza
             services.AddScoped<IRepositoryRaza, RepositorioRaza>();
             services.AddScoped<ServicioRaza>();
+            
             //Animal
             services.AddScoped<IRepositoryAnimal, RepositorioAnimal>();
             services.AddScoped<ServicioAnimal>();

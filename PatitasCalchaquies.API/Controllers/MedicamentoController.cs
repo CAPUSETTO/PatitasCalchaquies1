@@ -95,9 +95,9 @@ public class MedicamentoController : ControllerBase
         }
 
         [HttpPut("{idMedicamento:int}")]
-        public async Task<IActionResult> Actualizar(int idMedicamento, [FromBody] MedicamentoDto dto)
+        public async Task<IActionResult> Actualizar(int idMedicamento, [FromBody] MedicamentoActualizarDto dto)
         {
-            if (idMedicamento != dto.IdMedicamento)
+            if (idMedicamento != dto.idMedicamento)
             {
                 return BadRequest(new {error = "El id de la url no coincide con el cuerpo de la petición"});
             }
@@ -105,6 +105,7 @@ public class MedicamentoController : ControllerBase
             try
             {
                 Medicamento medicamento = _mapper.Map<Medicamento>(dto);
+                
                 
                 bool resultado = await _serviceMedicamento.ActualizarAsync(medicamento);
                 if (!resultado)
