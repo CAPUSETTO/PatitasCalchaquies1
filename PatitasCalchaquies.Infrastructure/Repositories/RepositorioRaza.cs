@@ -5,6 +5,7 @@ using MySqlConnector;
 using PatitasCalchaquies.Core.Entities;
 using PatitasCalchaquies.Core.Interfaces;
 using PatitasCalchaquies.Infrastructure.Context;
+using Dapper;
 
 namespace PatitasCalchaquies.Infrastructure.Repositories;
 
@@ -126,4 +127,53 @@ public class RepositorioRaza : IRepositoryRaza
             return 0;
         }
     }
+    
+    public async Task<bool> ActualizarAsync(Raza raza)
+    {
+        try
+        {
+            using var conexion = await _conn.obtenerConexionAsync();
+            var parametros = new DynamicParameters();
+            parametros.Add("_id", raza.IdRaza, DbType.Int32, ParameterDirection.Input);
+            parametros.Add("_id_especie", raza.IdEspecie, DbType.Int32, ParameterDirection.Input);
+            parametros.Add("_nombre", raza.Nombre, DbType.String, ParameterDirection.Input);
+
+            var filas = await conexion.ExecuteScalarAsync<int>(
+                "sp_raza_actualizar",
+                parametros,
+                commandType: CommandType.StoredProcedure
+            );
+
+            return filas > 0;
+        }
+        catch (Exception error)
+        {
+            ArchivoLog.RegistrarErrores(error);
+            return false;
+        }
+    }
+
+    public async Task<bool> EliminarAsync(int id)
+    {
+        try
+        {
+            using var conexion = await _conn.obtenerConexionAsync();
+            var parametros = new DynamicParameters();
+            parametros.Add("_id", id, DbType.Int32, ParameterDirection.Input);
+
+            var filas = await conexion.ExecuteScalarAsync<int>(
+                "sp_raza_eliminar",
+                parametros,
+                commandType: CommandType.StoredProcedure
+            );
+
+            return filas > 0;
+        }
+        catch (Exception error)
+        {
+            ArchivoLog.RegistrarErrores(error);
+            return false;
+        }
+    }
+
 }

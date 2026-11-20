@@ -15,12 +15,14 @@ public class RazaController : ControllerBase
 {
     private readonly ServicioRaza _serviceRaza;
     private readonly IValidator<RazaCrearDto> _validatorCrearRaza;
+    private readonly IValidator<RazaActualizarDto> _validatorActualizarRaza;
     private readonly IMapper _mapper;
 
-    public RazaController(ServicioRaza serviceRaza,  IValidator<RazaCrearDto> validatorCrearRaza,IMapper mapper)
+    public RazaController(ServicioRaza serviceRaza,  IValidator<RazaCrearDto> validatorCrearRaza,IValidator<RazaActualizarDto> validatorActualizarRaza,IMapper mapper)
     {
         _serviceRaza = serviceRaza;
         _validatorCrearRaza = validatorCrearRaza;
+        _validatorActualizarRaza = validatorActualizarRaza;
         _mapper = mapper;
     }
     
@@ -70,6 +72,59 @@ public class RazaController : ControllerBase
             return BadRequest(new { error = ex.Message });
         }
         catch (InvalidOperationException ex)
+        {
+            return BadRequest(new { error = ex.Message });
+        }
+    }
+    
+    [HttpPut("{id:int}")]
+    public async Task<IActionResult> Update(int id, [FromBody] RazaActualizarDto dto)
+    {
+        if (id != dto.IdRaza)
+            return BadRequest(new { mensaje = "El ID de la ruta no coincide con el del cuerpo." });
+
+        var validacion = await _validatorActualizarRaza.ValidateAsync(dto);
+        if (!validacion.IsValid)
+        {
+            var errores = validacion.Errors.Select(e => e.ErrorMessage).ToList();
+            return BadRequest(new { mensaje = "Error de validación", errores });
+        }
+
+        try
+        {
+            var raza = _mapper.Map<Raza>(dto);
+            bool actualizado = await _serviceRaza.ActualizarAsync(raza);
+            if (!actualizado)
+                return NotFound(new { mensaje = $"No se pudo actualizar la raza con ID {id}." });
+
+            return Ok(_mapper.Map<RazaDto>(raza));
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(new { error = ex.Message });
+        }
+        catch (ArgumentException ex)
+        {
+            return BadRequest(new { error = ex.Message });
+        }
+    }
+
+    [HttpDelete("{id:int}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        try
+        {
+            bool eliminado = await _serviceRaza.EliminarAsync(id);
+            if (!eliminado)
+                return NotFound(new { mensaje = $"No se encontró la raza con ID {id}." });
+
+            return NoContent();
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(new { error = ex.Message });
+        }
+        catch (ArgumentException ex)
         {
             return BadRequest(new { error = ex.Message });
         }

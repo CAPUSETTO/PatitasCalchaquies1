@@ -39,6 +39,7 @@ builder.Services.AddScoped<IValidator<PersonaActualizarDto>, PersonaUpdateValida
 builder.Services.AddScoped<IValidator<MedicamentoCrearDto>, MedicamentoCreateValidator>();
 builder.Services.AddScoped<IValidator<VacunaCrearDto>, VacunaCreateValidator>();
 builder.Services.AddScoped<IValidator<RazaCrearDto>, RazaCreateValidator>();
+builder.Services.AddScoped<IValidator<RazaActualizarDto>, RazaActualizarValidator>();
 builder.Services.AddScoped<IValidator<AnimalCrearDto>, AnimalCreateValidator>();
 builder.Services.AddScoped<IValidator<AnimalActualizarDto>, AnimalUpdateValidator>();
 builder.Services.AddScoped<IValidator<AdopcionCrearDto>, AdopcionCreateValidator>();

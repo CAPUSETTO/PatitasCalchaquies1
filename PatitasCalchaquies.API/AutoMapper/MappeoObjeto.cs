@@ -30,6 +30,7 @@ public class MappeoObjeto : Profile
         
         CreateMap<Raza, RazaDto>();
         CreateMap<RazaCrearDto, Raza>();
+        CreateMap<RazaActualizarDto, Raza>();
         
         // 5. Mapeo Animal
         
