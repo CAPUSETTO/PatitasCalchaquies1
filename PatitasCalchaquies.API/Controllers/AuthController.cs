@@ -10,11 +10,13 @@ public class AuthController : ControllerBase
 {
     private readonly IAutenticacionServicio _authService;
     private readonly IRepositorioUsuario _repoUsuario;
+    private readonly IConfiguration _configuration;
 
-    public AuthController(IAutenticacionServicio authService, IRepositorioUsuario repoUsuario)
+    public AuthController(IAutenticacionServicio authService, IRepositorioUsuario repoUsuario, IConfiguration configuration)
     {
         _authService = authService;
         _repoUsuario = repoUsuario;
+        _configuration = configuration;
     }
 
     [HttpPost("login")]
@@ -41,6 +43,7 @@ public class AuthController : ControllerBase
         return Ok(new
         {
             Token = token,
+            Expiracion = DateTime.UtcNow.AddMinutes(int.Parse(_configuration["Jwt:tiempo_expiracion_minutos"] ?? "60")),
             Operador = operadorDto
         });
     }

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using AutoMapper;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +8,7 @@ using PatitasCalchaquies.Core.Services;
 
 namespace PatitasCalchaquies.API.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class AnimalesController : ControllerBase

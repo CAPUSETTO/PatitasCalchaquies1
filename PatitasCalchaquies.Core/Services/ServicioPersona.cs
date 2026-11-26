@@ -69,6 +69,7 @@ public class ServicioPersona
         }
         
         int id = await _repositorio.CrearPersonaAsync(persona);
+
         if (id <= 0)
         {
             throw new InvalidOperationException("No se pudo guardar la persona en la base de datos.");

@@ -115,6 +115,9 @@ builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
+// Crea el usuario Administrador inicial si no existe
+await PatitasCalchaquies.API.Seed.SemillaAdministrador.EjecutarAsync(app.Services);
+
 // Configuración del pipeline HTTP
 if (app.Environment.IsDevelopment())
 {

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using AutoMapper;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
@@ -8,6 +9,7 @@ using MySqlConnector;
 
 namespace PatitasCalchaquies.API.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 
