@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authorization;
+using PatitasCalchaquies.Shared.Constants;
 using AutoMapper;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
@@ -8,7 +9,7 @@ using PatitasCalchaquies.Core.Services;
 
 namespace PatitasCalchaquies.API.Controllers;
 
-[Authorize]
+[Authorize(Policy = Politicas.Voluntario)]
 [ApiController]
 [Route("api/[controller]")]
 public class VacunacionesController : ControllerBase
@@ -47,6 +48,7 @@ public class VacunacionesController : ControllerBase
         return Ok(_mapper.Map<VacunacionDto>(vacunacion));
     }
 
+    [Authorize(Policy = Politicas.Veterinario)]
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] VacunacionCrearDto dto)
     {
@@ -72,6 +74,7 @@ public class VacunacionesController : ControllerBase
         }
     }
 
+    [Authorize(Policy = Politicas.Veterinario)]
     [HttpPut("{id:int}")]
     public async Task<IActionResult> Update(int id, [FromBody] VacunacionActualizarDto dto)
     {
@@ -104,6 +107,7 @@ public class VacunacionesController : ControllerBase
         }
     }
 
+    [Authorize(Policy = Politicas.Veterinario)]
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> Delete(int id)
     {

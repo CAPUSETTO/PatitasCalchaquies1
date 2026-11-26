@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authorization;
+using PatitasCalchaquies.Shared.Constants;
 using System.Security.Claims;
 using AutoMapper;
 using FluentValidation;
@@ -9,7 +10,7 @@ using PatitasCalchaquies.Core.Services;
 
 namespace PatitasCalchaquies.API.Controllers;
 
-[Authorize]
+[Authorize(Policy = Politicas.Administrador)]
 [ApiController]
 [Route("api/[controller]")]
 public class UsuariosController : ControllerBase

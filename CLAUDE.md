@@ -46,9 +46,11 @@ Los nombres de interfaz no son uniformes (`IRepositoryX` vs `IRepositorioX`); re
 ## Autenticación
 
 - Login: `POST /api/Auth/login` → token JWT (HS256, 180 min por defecto), fecha `Expiracion` y datos del `Operador`. `AutenticacionService` valida con BCrypt (`ServicioPassword`); si el usuario no tiene roles se le asigna `Voluntario`.
-- Los controladores llevan `[Authorize]` a nivel de clase, salvo `AuthController` y `WeatherForecastController`. Es solo autenticación: **no hay `[Authorize(Roles=...)]`**.
-- Los únicos chequeos de rol están dentro de `UsuariosController` (`VerificarPermisoAdministradorAsync`, en los endpoints de `operadores` y `POST /api/Usuarios`). Asumen por convención rol id 1 = Administrador, 2 = Veterinario, 3 = Voluntario.
-- Un controlador nuevo debe llevar `[Authorize]` y `using Microsoft.AspNetCore.Authorization;`.
+- Los permisos siguen el diagrama de casos de uso con tres políticas definidas en `Program.cs` (nombres en `Shared/Constants/Roles.cs`): `Politicas.Voluntario` (cualquiera de los tres roles: Administrador y Veterinario especializan a Voluntario), `Politicas.Administrador` y `Politicas.Veterinario`. El Administrador **no** hereda los casos del Veterinario.
+- Todos los controladores llevan `[Authorize(Policy = Politicas.Voluntario)]` a nivel de clase, salvo `AuthController`, `WeatherForecastController`, `UsuariosController` y `UsuariosRolesController` (estos dos llevan `Politicas.Administrador`).
+- Los GET quedan abiertos a cualquier rol. Las escrituras (POST/PUT/DELETE) llevan además `[Authorize(Policy = ...)]` en el método: `Politicas.Administrador` en catálogos (Especies, Raza, Sexos, EstadosAnimales, Vacuna, Medicamento), Predios, Sectores, Veterinarios y Roles; `Politicas.Veterinario` en AtencionesVeterinarias, Tratamientos, TratamientosMedicamentos, Vacunaciones y Esterilizaciones.
+- `UsuariosController` mantiene además `VerificarPermisoAdministradorAsync` en los endpoints de `operadores` y `POST /api/Usuarios`.
+- Un controlador nuevo debe llevar la política que le corresponda según el diagrama, con `using Microsoft.AspNetCore.Authorization;` y `using PatitasCalchaquies.Shared.Constants;`.
 
 ## Bruno
 

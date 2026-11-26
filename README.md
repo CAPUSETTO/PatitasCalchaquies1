@@ -72,7 +72,20 @@ Todos los endpoints, salvo el login, requieren un token JWT.
 5. En la configuración de la colección, pestaña **Auth**, elegir **Bearer Token** con el valor `{{token}}`. Todas las requests lo heredan.
 6. Repetir `Animales > Get All`: responde **200**.
 
-Para ver la diferencia entre 401 y 403: con el token de `voluntario.cafayate`, `POST /api/Usuarios/operadores` responde **403 Forbidden**, porque ese endpoint exige rol Administrador.
+Para ver la diferencia entre 401 y 403: con el token de `voluntario.cafayate`, `POST /api/Especies` responde **403 Forbidden**, porque gestionar catálogos es un caso de uso del Administrador.
+
+## Permisos por rol
+
+Los permisos siguen el diagrama de casos de uso. Administrador y Veterinario especializan a Voluntario: heredan todo lo que puede hacer un Voluntario. Las consultas (GET) están abiertas a los tres roles, salvo Usuarios y UsuariosRoles.
+
+| Recursos | Consultar (GET) | Registrar, modificar y eliminar |
+|---|---|---|
+| Animales, FotosAnimales, IngresosAnimales, AlojamientosAnimales, Alimentaciones, PlanesAlimentacion, Personas, SolicitudesAdopciones, Adopciones, SeguimientosAdopciones, DevolucionesAdopciones | Todos | Todos |
+| Especies, Raza, Sexos, EstadosAnimales, Vacuna, Medicamento, Predios, Sectores, Veterinarios, Roles | Todos | Administrador |
+| AtencionesVeterinarias, Tratamientos, TratamientosMedicamentos, Vacunaciones, Esterilizaciones | Todos | Veterinario |
+| Usuarios, UsuariosRoles | Administrador | Administrador |
+
+Las políticas están en `Program.cs` y los nombres de roles en `PatitasCalchaquies.Shared/Constants/Roles.cs`.
 
 ## Estructura
 

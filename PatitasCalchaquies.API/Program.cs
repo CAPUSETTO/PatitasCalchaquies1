@@ -9,6 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using PatitasCalchaquies.Core.Interfaces;
 using PatitasCalchaquies.Core.Services;
+using PatitasCalchaquies.Shared.Constants;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -111,7 +112,16 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
-builder.Services.AddAuthorization();
+// Policies from the use case diagram: Administrador and Veterinario specialize Voluntario.
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy(Politicas.Voluntario, policy =>
+        policy.RequireRole(Roles.Voluntario, Roles.Veterinario, Roles.Administrador));
+    options.AddPolicy(Politicas.Administrador, policy =>
+        policy.RequireRole(Roles.Administrador));
+    options.AddPolicy(Politicas.Veterinario, policy =>
+        policy.RequireRole(Roles.Veterinario));
+});
 
 var app = builder.Build();
 

@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authorization;
+using PatitasCalchaquies.Shared.Constants;
 using AutoMapper;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
@@ -9,7 +10,7 @@ using MySqlConnector;
 
 namespace PatitasCalchaquies.API.Controllers;
 
-[Authorize]
+[Authorize(Policy = Politicas.Voluntario)]
 [ApiController]
 [Route("api/[controller]")]
 
@@ -59,6 +60,7 @@ public class VacunaController : ControllerBase
             }
         }
 
+        [Authorize(Policy = Politicas.Administrador)]
         [HttpPost]
         public async Task<IActionResult> Crear([FromBody] VacunaCrearDto dto)
         {
@@ -93,6 +95,7 @@ public class VacunaController : ControllerBase
             }
         }
 
+        [Authorize(Policy = Politicas.Administrador)]
         [HttpPut("{idVacuna:int}")]
         public async Task<IActionResult> Actualizar(int idVacuna, [FromBody] VacunaActualizarDto dto)
         {
@@ -129,6 +132,7 @@ public class VacunaController : ControllerBase
             }
         }
 
+        [Authorize(Policy = Politicas.Administrador)]
         [HttpDelete("{idVacuna:int}")]
         public async Task<IActionResult> Eliminar(int idVacuna)
         {

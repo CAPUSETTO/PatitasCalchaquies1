@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authorization;
+using PatitasCalchaquies.Shared.Constants;
 using AutoMapper;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
@@ -9,7 +10,7 @@ using MySqlConnector;
 
 namespace PatitasCalchaquies.API.Controllers;
 
-[Authorize]
+[Authorize(Policy = Politicas.Voluntario)]
 [ApiController]
 [Route("api/[controller]")]
 
@@ -49,6 +50,7 @@ public class RazaController : ControllerBase
         }
     }
 
+    [Authorize(Policy = Politicas.Administrador)]
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] RazaCrearDto dto)
     {
@@ -79,6 +81,7 @@ public class RazaController : ControllerBase
         }
     }
     
+    [Authorize(Policy = Politicas.Administrador)]
     [HttpPut("{id:int}")]
     public async Task<IActionResult> Update(int id, [FromBody] RazaActualizarDto dto)
     {
@@ -111,6 +114,7 @@ public class RazaController : ControllerBase
         }
     }
 
+    [Authorize(Policy = Politicas.Administrador)]
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> Delete(int id)
     {
