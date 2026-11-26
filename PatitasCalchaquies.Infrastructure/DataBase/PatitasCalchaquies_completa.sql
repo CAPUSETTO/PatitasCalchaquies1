@@ -721,6 +721,10 @@ CREATE TABLE `Usuarios` (
   `activo` tinyint(1) DEFAULT NULL,
   `fecha_creacion` date DEFAULT NULL,
   `ultimo_acceso` datetime DEFAULT NULL,
+  `nombre` varchar(50) DEFAULT NULL,
+  `apellido` varchar(50) DEFAULT NULL,
+  `etiqueta_area` varchar(100) DEFAULT NULL,
+  `id_veterinario` int DEFAULT NULL,
   PRIMARY KEY (`IdUsuario`),
   UNIQUE KEY `usuario` (`usuario`),
   KEY `id_persona` (`id_persona`),
@@ -3069,6 +3073,35 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_raza_actualizar` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE PROCEDURE `sp_raza_actualizar`(
+    IN _id INT,
+    IN _id_especie INT,
+    IN _nombre VARCHAR(50)
+)
+BEGIN
+    UPDATE Razas
+    SET
+        id_especie = _id_especie,
+        nombre = _nombre
+    WHERE IdRaza = _id;
+
+    SELECT ROW_COUNT();
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `sp_raza_crear` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -3088,6 +3121,30 @@ BEGIN
     VALUES (_id_especie, _nombre);
     
     SELECT LAST_INSERT_ID();
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_raza_eliminar` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE PROCEDURE `sp_raza_eliminar`(
+    IN _id INT
+)
+BEGIN
+    DELETE FROM Razas
+    WHERE IdRaza = _id;
+
+    SELECT ROW_COUNT();
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -5045,10 +5102,10 @@ END ;;
 DELIMITER ;
 
 INSERT IGNORE INTO `Usuarios` (`IdUsuario`, `usuario`, `password_hash`, `activo`, `fecha_creacion`, `ultimo_acceso`, `nombre`, `apellido`, `etiqueta_area`, `id_veterinario`) VALUES
-  (1, 'admin.valles', 'calchaqui2026', 1, '2025-03-10', '2026-10-25 09:00:00', 'Coordinación General', 'Valles', 'Coordinación General', NULL),
-  (2, 'dra.mamani', 'vet2026', 1, '2025-05-14', '2026-10-25 10:30:00', 'Sofía', 'Mamaní', 'Veterinaria Clínica', 1),
-  (3, 'voluntario.cafayate', 'patitas2026', 1, '2025-08-01', '2026-10-25 11:15:00', 'Guardia Voluntaria', 'Cafayate', 'Guardia y Adopciones', NULL),
-  (4, 'dr.tolaba', 'vet2026', 1, '2025-09-20', NULL, 'Lucas', 'Tolaba', 'Cirugía y Esterilizaciones', 2);
+  (1, 'admin.valles', '$2a$11$F9fwOXgUVU1rMXfpqZ2JMeAmKrFYuD9A8ChUzKCtKAFMS3womj16S', 1, '2025-03-10', '2026-10-25 09:00:00', 'Coordinación General', 'Valles', 'Coordinación General', NULL),
+  (2, 'dra.mamani', '$2a$11$Sk7JQdf2cFl8RZqP/JspxOx9fPs5eH3R/NWF7fp.Ev/l4gxPtbZZ6', 1, '2025-05-14', '2026-10-25 10:30:00', 'Sofía', 'Mamaní', 'Veterinaria Clínica', 1),
+  (3, 'voluntario.cafayate', '$2a$11$LqGkI96KQwufvn84FAeE/.5bY.DLOPTIl74IPZwEzTq0OlecC0aui', 1, '2025-08-01', '2026-10-25 11:15:00', 'Guardia Voluntaria', 'Cafayate', 'Guardia y Adopciones', NULL),
+  (4, 'dr.tolaba', '$2a$11$Sk7JQdf2cFl8RZqP/JspxOx9fPs5eH3R/NWF7fp.Ev/l4gxPtbZZ6', 1, '2025-09-20', NULL, 'Lucas', 'Tolaba', 'Cirugía y Esterilizaciones', 2);
 
 INSERT IGNORE INTO `Usuario_Rol` (`IdUsuario`, `IdRol`) VALUES
   (1, 1),
